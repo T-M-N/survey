@@ -6,7 +6,7 @@ Page sondage
 
 @section('content')
   <div class="container">
-    <div>
+    <div id="survey">
       <header>
        <img src="/image/bigscreen_logo.png" alt="logo bigscreen"/>
        <h1>Merci de répondre à toutes les questions et de valider le formulaire en bas de page.</h1>

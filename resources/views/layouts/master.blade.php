@@ -24,78 +24,45 @@
 
 <style>
 /* Global */
-a{
-    color:#212529;
-}
-/* Galery product home */
-
-.galery-product ul{
-   width: 960px;
-   margin:auto;
-}
-
-.galery-product li{
-    max-width: 30%;
+input, select {
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
 }
 
-h2{
-    font-size: 1rem;
+input[type=submit] {
+width: 100%;
+background-color: #474747;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+border-radius: 4px;
+cursor: pointer;
 }
 
-img.homme{
-    max-width: 84%;
-    margin:auto;
+input[type=submit]:hover {
+background-color:#1DB8F1;
 }
 
-.list-inline-item:not(:last-child) {
-    margin-right: 1.5rem;
-    margin-top: 1rem;
+#survey {
+border-radius: 5px;
+background-color: #cacaca;
+padding: 20px;
 }
 
-/* Les navigations */
-.navbar-light .navbar-nav .active>.nav-link{
-    border-bottom:1px solid;
+header img {
+width: 15rem;
 }
 
-nav h1{
-    font-size: 1.5rem;
+@media (min-width: 992px) {
+.container {
+max-width: 720px !important;
 }
-.tophatbar{
-     text-transform: capitalize;
-}
-
-.tophatbar li, .tophatbar-admin li{
-    margin-right:1em;
-}
-
-.tophatbar-admin{
-text-transform: inherit;
-}
-
-/* Pagination */
-.pagination{
-   justify-content: center;
-}
-
-.page-link{
-    color:#000000;
-}
-
-.margin-top-1em{
-    margin-top:1em;
-}
-
-/* Description d'un produit */
-.description{
-    margin-top:1em;
-}
-
-/* Formulaire input */
-.form{
-    margin-top:1em;
-}
-.form-control{
-    width:68%;
 }
 </style>
 

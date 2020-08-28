@@ -19,10 +19,8 @@ Route::get('/', 'FrontController@index')->name('home');
 Route::resource('validation', 'AnswerController');
 
 //back
-Route::resource('administration', 'SurveyController');
+Route::resource('admin', 'DashController');
 
-// Route::get('/admin/question', 'SurveyController')->name('admin.question');
-// Route::get('/admin/answer', 'SurveyController')->name('admin.answer');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('administration', 'HomeController@index')->name('administration');

@@ -76,6 +76,6 @@ class AnswerController extends Controller
 
             $user->answers()->attach([2]);
             }
-            return view('back.survey.index');
+            return view('front.validate');
     }
 }
