@@ -15,12 +15,6 @@ class User extends Authenticatable
         return $this->belongsToMany(Answer::class);
     }
 
-    //answers pas answer_user
-    // public function answer_user()
-    // {
-    //     return $this->belongsToMany(AnswerUser::class);
-    // }
-
 
     use Notifiable;
 

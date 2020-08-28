@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Answer extends Model
 {
     protected $fillable = [
-    'option'
+         'option'
     ];
 
     public function question()
@@ -16,7 +16,7 @@ class Answer extends Model
     }
 
     public function users(){
-        return $this->belongsToMany(Answer::class);
+        return $this->belongsToMany(User::class);
     }
 
 }
