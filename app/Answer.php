@@ -12,7 +12,11 @@ class Answer extends Model
 
     public function question()
     {
-    return $this->belongsTo(question::class);
+        return $this->belongsTo(Question::class);
+    }
+
+    public function users(){
+        return $this->belongsToMany(Answer::class);
     }
 
 }

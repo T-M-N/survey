@@ -4,6 +4,8 @@
 Page sondage
 @endsection
 
+@extends('partials.menu')
+
 @section('content')
 <div class="container">
     <div>

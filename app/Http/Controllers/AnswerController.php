@@ -35,7 +35,7 @@ class AnswerController extends Controller
                 'password' => 'test'
                 ];
 
-                User::create($data);
+                // User::create($data);
             }
             $user_id = User::where('email', $usermail)->get('id');
 
@@ -72,9 +72,13 @@ class AnswerController extends Controller
 
             // Answer::create($data);
 
-            $user = User::find(1);
+            $user = User::where('email')->get('id');
+            dump($user);
+            return;
+            $answer = Answer::where('option', $answer_given)->get('id');
 
-            $user->answers()->attach([2]);
+            $user->answers()->attach($answer);
+
             }
             return view('front.validate');
     }

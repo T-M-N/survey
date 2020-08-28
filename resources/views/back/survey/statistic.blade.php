@@ -6,5 +6,4 @@
     une
     application toujours plus facile à utiliser, seul ou en famille.
     Si vous désirez consulter vos réponse ultérieurement, vous pouvez consultez cette adresse: http://xxxxxxxx</p>
-
 @endsection
