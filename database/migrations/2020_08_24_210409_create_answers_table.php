@@ -14,11 +14,11 @@ class CreateAnswersTable extends Migration
     public function up()
     {
         Schema::create('answers', function (Blueprint $table) {
-            $table->id();
-            $table->string('answer',255); 
+            $table->id(); 
+            $table->string('option',255)->nullable(); 
             $table->enum('status', ['actif', 'inactif'])->default('inactif');
-             $table->foreignId('question_id') // respecter le type de la clé primaire de la table genres
-                ->nullable() // Un livre peut ne pas avoir de genre
+             $table->foreignId('question_id') 
+                ->nullable() 
                 ->constrained() 
                 ->onDelete('SET NULL'); 
             $table->timestamps();

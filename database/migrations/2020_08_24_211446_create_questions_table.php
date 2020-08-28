@@ -17,7 +17,6 @@ class CreateQuestionsTable extends Migration
             $table->id();
             $table->text('question_label'); 
             $table->string('type');
-            $table->json('option')->nullable();
             $table->timestamps();
         });
     }

@@ -6,14 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Answer extends Model
 {
- 
+    protected $fillable = [
+    'option'
+    ];
+
     public function question()
     {
-        return $this->hasMany(question::class);
+    return $this->belongsTo(question::class);
     }
 
-     public function user()
-    {
-        return $this->belongsToMany(User::class);
-    }
 }

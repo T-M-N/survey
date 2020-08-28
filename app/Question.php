@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    //une question peut avoir plusieurs réponse
-    public function answer()
+
+    public function answers()
     {
-        return $this->belongsToMany(Answer::class);
+        return $this->hasMany(Answer::class);
     }
 }

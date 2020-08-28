@@ -14,16 +14,10 @@ class CreateAnswerUserTable extends Migration
     public function up()
     {
         Schema::create('answer_user', function (Blueprint $table) {
-            $table->id();
-              $table->foreignId('user_id') 
-                ->nullable() 
-                ->constrained() 
-                ->onDelete('SET NULL'); 
-                  $table->foreignId('answer_id') 
-                ->nullable() 
-                ->constrained() 
-                ->onDelete('SET NULL'); 
-            $table->timestamps();
+        $table->id();
+        $table->foreignId('user_id')->constrained();
+        $table->foreignId('answer_id')->constrained();
+        $table->timestamps();
         });
     }
 

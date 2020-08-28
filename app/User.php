@@ -6,13 +6,20 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+
 class User extends Authenticatable
 {
-
-    public function answer()
+    
+    public function answers()
     {
         return $this->belongsToMany(Answer::class);
     }
+
+    //answers pas answer_user
+    // public function answer_user()
+    // {
+    //     return $this->belongsToMany(AnswerUser::class);
+    // }
 
 
     use Notifiable;
@@ -23,7 +30,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'user_role', 'email', 'password',
     ];
 
     /**
