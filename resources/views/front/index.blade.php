@@ -12,7 +12,7 @@ Page sondage
        <h1>Merci de répondre à toutes les questions et de valider le formulaire en bas de page.</h1>
       </header>
       {{-- ne pas mettre de route pour celui la car dans la list route on a que le mot send du coup pas de chemin spécifique --}}
-      <form action="{{ route('send.store') }}" method="post"  enctype="multipart/form-data">
+      <form action="{{ route('validation.store') }}" method="post"  enctype="multipart/form-data">
         {{ csrf_field() }}
         
         <!-- on a affiché la question d'abord 

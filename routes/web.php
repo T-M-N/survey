@@ -15,5 +15,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'FrontController@index')->name('home');
 
-//nécessaire pour créer les create, store etc dans survercontroller
-Route::resource('send', 'AnswerController');
+//validation survey
+Route::resource('validation', 'AnswerController');
+
+//back
+Route::resource('administration', 'SurveyController');
+
+// Route::get('/admin/question', 'SurveyController')->name('admin.question');
+// Route::get('/admin/answer', 'SurveyController')->name('admin.answer');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -65,24 +65,17 @@ class AnswerController extends Controller
 
             $answer_id = Answer::where('option', $answer_given)->get('id');
 
-            $data = [
-                'user_id' => $user_id,
-                'answer_id' => $answer_id,
-            ];
+            // $data = [
+            //     'user_id' => $user_id,
+            //     'answer_id' => $answer_id,
+            // ];
 
-            Answer::create($data);
+            // Answer::create($data);
 
-            $rep = User::find(5);
+            $user = User::find(1);
 
-            // dump($rep->answers()->attach([$user_id, $answer_id]));
-            // return;
-
-            $rep->answers()->attach(
-            [
-            'user_id' => $user_id,
-            'answer_id' => $answer_id,
-            ]);
-
+            $user->answers()->attach([2]);
             }
-        }
+            return view('back.survey.index');
+    }
 }
