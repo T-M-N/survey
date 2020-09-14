@@ -11,50 +11,35 @@ Page sondage
             @include('partials.menu')
         </div>
         <div class="col-sm-8 shadow-sm p-5 mb-5 bg-white rounded padding-2em">
-            @if(count($users) == 0)
+            @if(count($userAnswers) == 0)
             <table class="table">
                 <tr>
                     <td>Pas de réponse</td>
                 </tr>
             </table>
             @else
-            @foreach($users as $user)
-            <h1>{{ $user->username }}
-                <table class="table">
-                    <thead class="thead-light">
-                        <tr>
-                            <th>ID</td>
-                            <th>QUESTIONS</th>
-                           
-                            <th>TYPE</th>
-                            <th>REPONSES</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($questions as $question)
-                        <tr>
-                            <td>{{ $question->id}}</td>
-                            <td>{{ $question->question_label}}</td>
-                            <td>{{ $question->type }}</td>
-                             
-                            <td>
-                            @foreach($user->answers as $answer)
-                            @if($answer->question_id == $question->id)
-                             {{ $answer->option}}
-
-                            @elseif($question->type == 'B')
-                            {{ $answer->option }}
-
-                            @elseif($question->type == 'C')
-                            {{ $answer->option}}
-                             @endif
+            @foreach($userAnswers as $userAnswer)
+                 @if(sizeof($userAnswer->answers) != 0)
+                     <h1>{{ $userAnswer->username }}</h1>
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>ID</td>
+                                <th>QUESTIONS</th> 
+                                <th>REPONSES</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($userAnswer->answers as $answer)
+                            <tr>
+                                <td>{{ $answer->question->id}}</td>
+                                <td>{{ $answer->question->question_label}}</td>
+                                <td>{{ $answer->option}}</td>
+                            </tr>
                             @endforeach
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-
+                        </tbody>
+                    </table>
+                @endif
                 @endforeach
                 @endif
         </div>

@@ -71,13 +71,15 @@ class AnswerController extends Controller
     }
 
     public function show($url){
-        $questions = Question::all();
-        $answers = Answer::all();
-        $user = User::all();
 
-        $user = User::where([['url', $url,]])->first();
-        $answers = $user->answers()->get();
-        return view('front.show', [ 'questions'=>$questions, 'answers'=>$answers, 'user'=>$user ]);
+        $userAnswer = User::with(['answers','answers.question'])->where([['url', $url,]])->first();
+        // $answers = $user->answers()->get();
+
+        // return response()->json([
+        // 'userAnswer'=>$userAnswer
+        // ]);
+
+        return view('front.show', [ 'userAnswer'=>$userAnswer]);
 
     }
 }

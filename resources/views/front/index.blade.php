@@ -67,19 +67,19 @@ Page sondage
 
 @section('scripts')
 <script>
-  const email = document.getElementById('question_1');
+//   const email = document.getElementById('question_1');
 
-  function disabledForm(){
-    document.getElementBy('question_1').addEventListener('change', function() {
-      if (email == email) {
-        document.getElementsByTagName('select').disabled = false;
-        document.getElementsByTagName('input').disabled = false;
-      } else {
-      document.getElementsByTagName('select').disabled = true;
-      document.getElementsByTagName('input').disabled = true;
-    } 
-  }
+//   function disabledForm(){
+//     document.getElementBy('question_1').addEventListener('change', function() {
+//       if (email == email) {
+//         document.getElementsByTagName('select').disabled = false;
+//         document.getElementsByTagName('input').disabled = false;
+//       } else {
+//       document.getElementsByTagName('select').disabled = true;
+//       document.getElementsByTagName('input').disabled = true;
+//     } 
+//   }
 
-});
+// });
 </script>
 @show

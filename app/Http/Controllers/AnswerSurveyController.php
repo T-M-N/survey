@@ -16,34 +16,15 @@ class AnswerSurveyController extends Controller
      */
     public function index()
     {
-        // $users = User::all();        
-        // $answers = Answer::all()->where('question_id', `IS`, NULL);      
-        
-        // $users = User::pluck('email', 'id');
-        // $answers = Answer::pluck('question_id', 'id');
 
-        // $options= Answer::all();
+        $userAnswers = User::with(['answers','answers.question'])->get();
 
-        // $users = User::all();
-        // return $users->email;
-
-        // $questions = Question::all();       
-        // $answers = Answer::all();
-
-        // $user = User::with(['answers'])->get();
-
-        $first_list = Answer::with(['question'])->get()->toArray();
-        $array = [];
-        foreach($first_list as $first){
-            array_push($array,$first);
-        }
-
-        // return view('back.survey.answer', [
-        // 'users' => $user
-        // ]);
+        return view('back.survey.answer', [
+         'userAnswers' => $userAnswers
+        ]);
 
         // return response()->json([
-        //  'array' => $first_list
+        //  'userAnswers' => $userAnswers
         // ]);
     }
 
