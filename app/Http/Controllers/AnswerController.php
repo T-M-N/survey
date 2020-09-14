@@ -40,21 +40,25 @@ class AnswerController extends Controller
                 if($question->type === 'A'){
                     $answer = Answer::where('id', $answer_given)->get('id');
                 }else{
+                    
                     //question de type B et C
-                    $answer = Answer::create([
-                        'option'=>$answer_given,
-                        'question_id'=>$question->id
-                    ]);
-            }
+                      
+                    $insertData = Answer::create(array(
+                        'option'=>$answer_given
+                    ));
 
+                    $insertData->question()->associate($question->id);
+                    $insertData->save();
+                }     
+         
             array_push($answers, [
-                'answer'=>$answer,
+                'insertData'=>$insertData,
                 'answer_given'=>$answer_given,
                 'question'=>$name,
                 'type'=>$question->type
                 ]);
 
-                $user->answers()->attach($answer);
+                $user->answers()->attach($insertData);
             }
 
             $user->URL = Str::random(20);
@@ -69,10 +73,11 @@ class AnswerController extends Controller
     public function show($url){
         $questions = Question::all();
         $answers = Answer::all();
+        $user = User::all();
 
         $user = User::where([['url', $url,]])->first();
         $answers = $user->answers()->get();
-        return view('front.show', [ 'questions'=>$questions, 'answers'=>$answers ]);
+        return view('front.show', [ 'questions'=>$questions, 'answers'=>$answers, 'user'=>$user ]);
 
     }
 }

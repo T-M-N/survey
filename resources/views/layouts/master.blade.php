@@ -28,40 +28,84 @@
 @show
 
 <style>
-/* Global */
-input, select {
-width: 100%;
-padding: 12px 20px;
-margin: 8px 0;
-display: inline-block;
-border: 1px solid #ccc;
-border-radius: 4px;
-box-sizing: border-box;
+/* CSS front*/
+body{
+    background-color: #233040;
 }
 
+a:hover{
+    cursor: pointer !important;
+}
+form, .padding-2-em{
+    padding:1em;
+}
+input, select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#valider{
+    width: 200px;
+    margin: auto;
+}
 input[type=submit] {
-width: 100%;
-background-color: #474747;
-color: white;
-padding: 14px 20px;
-margin: 8px 0;
-border: none;
-border-radius: 4px;
-cursor: pointer;
+    width: 100%;
+    background-color: #474747;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 input[type=submit]:hover {
-background-color:#1DB8F1;
+    background: #ffffff;
+    color:#233040;
 }
 
-#survey {
-border-radius: 5px;
-background-color: #cacaca;
-padding: 20px;
+label{
+    color:#233040;
+    font-size: 1.2em;
+    margin:0;
 }
 
+.contentBack {
+    background: #2fcbd2;
+    /* background: linear-gradient(77deg, rgba(2, 190, 110, 1) 0%, rgb(47 203 210) 100%); */
+    padding: 2em;
+}
+
+.contentBack h1{
+    color:#233040;
+    padding-left: 0.5em;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.contentBack h2{
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.contentBack p{
+    margin:0;
+}
+
+#survey select{
+   border: 3px dashed #b7b7b7;
+}
 header img {
-width: 15rem;
+    width: 15rem;
+}
+
+.col-mb-3{
+    margin-top:.5rem;
 }
 
 @media (min-width: 992px) {

@@ -30,16 +30,21 @@ class AnswerSurveyController extends Controller
         // $questions = Question::all();       
         // $answers = Answer::all();
 
-        $user = User::with(['answers'])->get();
-        
+        // $user = User::with(['answers'])->get();
+
+        $first_list = Answer::with(['question'])->get()->toArray();
+        $array = [];
+        foreach($first_list as $first){
+            array_push($array,$first);
+        }
 
         // return view('back.survey.answer', [
         // 'users' => $user
         // ]);
 
-        return response()->json([
-         'users' => $user
-        ]);
+        // return response()->json([
+        //  'array' => $first_list
+        // ]);
     }
 
     /**

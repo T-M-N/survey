@@ -5,9 +5,8 @@ Page sondage
 @endsection
 
 <div class="container-fluid">
-    <div class="row ">
-        <div
-            class="background shadow-sm p-3 mb-5 rounded  col-sm-4 d-flex justify-content-center align-items-center flex-column">
+    <div class="row" id="backSurvey">
+        <div class="background shadow-sm p-3 mb-5 rounded  col-sm-4 d-flex justify-content-center align-items-center flex-column">
             @include('partials.menu')
         </div>
         <div class="col-sm-8 shadow-sm p-5 mb-5 bg-white rounded padding-2em">
@@ -15,6 +14,8 @@ Page sondage
         </div>
     </div>
 </div>
+
+
 @section('scripts')
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 <script>
@@ -65,23 +66,5 @@ Page sondage
 </script>
 @show
 <style>
-    .container-fluid {
-        padding: 2em;
-    }
 
-    .row {
-        width: 95%;
-        max-width: 1200px;
-        margin: auto !important;
-    }
-
-    .background {
-        /* background-color:#353F47; */
-        background: linear-gradient(77deg, rgba(2, 190, 110, 1) 0%, rgba(47, 203, 210, 1) 100%);
-    }
-
-    .table .thead-light th {
-        background: transparent !important;
-        border-color: #2fcbd2 !important;
-    }
 </style>

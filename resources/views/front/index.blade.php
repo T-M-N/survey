@@ -6,9 +6,9 @@ Page sondage
 
 @section('content')
   <div class="container">
-    <div id="survey">
+    <div id="survey" class='contentBack'>
       <header>
-       <img src="/image/bigscreen_logo.png" alt="logo bigscreen"/>
+       <p><img src="/image/bigscreen_logo.png" alt="logo bigscreen"/></p>     
        <h1>Merci de répondre à toutes les questions et de valider le formulaire en bas de page.</h1>
       </header>
       @if ($errors->any())
@@ -30,33 +30,56 @@ Page sondage
         -->
         @foreach($questions as $question)
             <div class="col-mb-3">
-              <label for="question">
-              {{$question->question_label}}
-            </label>
-            @if($question->type == 'A')
-              <select id="question_{{ $question->id }}" name="question_{{ $question->id }}">
+
+            <p><label for="question">
+             <h2> Questions {{ $question->id }} /20</h2>
+              <p>{{$question->question_label}}</p>
+            </label></p>
+
+            @if($question->type=='A')
+              <select onchange="disabledForm()" id="question_{{ $question->id }}" name="question_{{ $question->id }}">
                 @foreach($question->answers as $rep)
                   <option value="{{$rep->id}}">{{$rep->option}}</option>
                 @endforeach
               </select>
-
+            
             @elseif($question->type == 'B')
-            <input type="text" id="question_{{ $question->id }}" name="question_{{ $question->id }}"/>
+            <input onchange="disableForm()" type="text" id="question_{{ $question->id }}" name="question_{{ $question->id }}"/>
             @if($errors->has('question_'.$question->id) ? 'is-invalid' : '') <span class="error bg-warning">{{ $errors->first('question_'.$question->id)}}</span> @endif
          
             @elseif($question->type == 'C')
-                  <select id="question_{{ $question->id }}" name="question_{{ $question->id }}">
+                  <select onchange="disableForm()" id="question_{{ $question->id }}" name="question_{{ $question->id }}">
                     @for ($i = 1; $i < 6; $i++)
                       <option value={{ $i }}>{{$i}}</option>
                     @endfor        
                   </select>
               @endif
           </div> 
-
         @endforeach
+    <div id="valider">
+        <input type="submit" value="Envoyer">
+    </div>
 
-        <input type="submit" value="Submit">
       </form>
     </div>
   </div>
 @endsection
+
+@section('scripts')
+<script>
+  const email = document.getElementById('question_1');
+
+  function disabledForm(){
+    document.getElementBy('question_1').addEventListener('change', function() {
+      if (email == email) {
+        document.getElementsByTagName('select').disabled = false;
+        document.getElementsByTagName('input').disabled = false;
+      } else {
+      document.getElementsByTagName('select').disabled = true;
+      document.getElementsByTagName('input').disabled = true;
+    } 
+  }
+
+});
+</script>
+@show
