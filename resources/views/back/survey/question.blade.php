@@ -7,10 +7,17 @@ Page sondage
 @section('content')
 <div class="container">
     <div>
-        <h1>Test</h1>
-           
-            <table>
+        <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">ID</td>
+                        <th scope="col">QUESTIONS</th>
+                        <th scope="col">TYPE</th>
+                    </tr>
+                </thead>
+               
                 @foreach($questions as $question)
+                <tbody>
                 <tr>                   
                   
                    <td>{{$question->id}}</td>
@@ -18,6 +25,7 @@ Page sondage
                    <td>{{$question->type}}</td>
                   
                 </tr>
+            </tbody>
                 @endforeach               
             </table>
            

@@ -20,6 +20,9 @@ class AnswerSeeder extends Seeder
                 'option' => 'femme',
                 'question_id' => 3
             ],
+            [   'option'=>'Préfère ne pas répondre',
+                'question_id' => 3
+            ],
             [
                 'option' => 'Occulus Rift/s',
                 'question_id' => 6

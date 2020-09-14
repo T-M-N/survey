@@ -9,7 +9,7 @@ use App\User;
 
 class FrontController extends Controller
 {
-   
+   //c'est lier au formulaire
    public function index(){ 
       $questions = Question::all(); 
       $options= Answer::all();  

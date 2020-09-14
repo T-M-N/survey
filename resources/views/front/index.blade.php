@@ -11,6 +11,11 @@ Page sondage
        <img src="/image/bigscreen_logo.png" alt="logo bigscreen"/>
        <h1>Merci de répondre à toutes les questions et de valider le formulaire en bas de page.</h1>
       </header>
+      @if ($errors->any())
+      <div class="alert alert-danger">
+        <p>Vérifier le formulaire il comporte des erreurs !</p>
+      </div>
+      @endif
       {{-- ne pas mettre de route pour celui la car dans la list route on a que le mot send du coup pas de chemin spécifique --}}
       <form action="{{ route('validation.store') }}" method="post"  enctype="multipart/form-data">
         {{ csrf_field() }}
@@ -33,28 +38,18 @@ Page sondage
                 @foreach($question->answers as $rep)
                   <option value="{{$rep->id}}">{{$rep->option}}</option>
                 @endforeach
-
-                @error('question_{{ $question->id }}')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
               </select>
 
             @elseif($question->type == 'B')
-            <input type="text" id="question_{{ $question->id }}" name="question_{{ $question->id }}" maxlength="255"/>
-
-            @error('question_{{ $question->id }}')
-            <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-
+            <input type="text" id="question_{{ $question->id }}" name="question_{{ $question->id }}"/>
+            @if($errors->has('question_'.$question->id) ? 'is-invalid' : '') <span class="error bg-warning">{{ $errors->first('question_'.$question->id)}}</span> @endif
+         
             @elseif($question->type == 'C')
                   <select id="question_{{ $question->id }}" name="question_{{ $question->id }}">
                     @for ($i = 1; $i < 6; $i++)
                       <option value={{ $i }}>{{$i}}</option>
                     @endfor        
                   </select>
-                  @error('question_{{ $question->id }}')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                  @enderror
               @endif
           </div> 
 

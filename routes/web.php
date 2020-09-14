@@ -17,10 +17,16 @@ Route::get('/', 'FrontController@index')->name('home');
 
 //validation survey
 Route::resource('validation', 'AnswerController');
+Route::get('/validation/{url}', 'AnswerController@show')->name('url');
 
-//back
-Route::resource('admin', 'DashController');
+// //back
+// Route::resource('admin', 'DashController');
 
 Auth::routes();
 
-Route::get('administration', 'HomeController@index')->name('administration');
+Route::get('administration', 'ChartController@index')->name('charts');
+// Route::get('administration', 'HomeController@index')->name('statistic');
+Route::get('administration/question', 'QuestionController@index')->name('question');
+Route::get('administration/answer', 'AnswerSurveyController@index')->name('answer');
+
+

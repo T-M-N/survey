@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Answer extends Model
 {
+    //pour l'insertion des données
     protected $fillable = [
-         'option'
+        'option'
     ];
 
     public function question()

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Question;
 
-class DashController extends Controller
+class QuestionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,11 @@ class DashController extends Controller
      */
     public function index()
     {
-        //
+        $questions = Question::all();
+
+        return view('back.survey.question', [
+            'questions' => $questions
+        ]);
     }
 
     /**

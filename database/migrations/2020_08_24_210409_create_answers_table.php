@@ -16,8 +16,7 @@ class CreateAnswersTable extends Migration
         Schema::create('answers', function (Blueprint $table) {
             $table->id(); 
             $table->string('option',255)->nullable(); 
-            $table->enum('status', ['actif', 'inactif'])->default('inactif');
-             $table->foreignId('question_id') 
+            $table->foreignId('question_id') 
                 ->nullable() 
                 ->constrained() 
                 ->onDelete('SET NULL'); 

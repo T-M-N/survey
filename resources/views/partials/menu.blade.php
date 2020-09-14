@@ -1,23 +1,25 @@
-{{-- <nav class="navbar  flex-column  align-items-start navbar-light bg-light">
-    <img src="/image/bigscreen_logo.png" alt="logo bigscreen" />
-    @if(Route::is('admin.*') == false)
-    <ul class="tophatbar navbar flex-row navbar-nav mr-auto">
+<img src="/image/bigscreen_logo.png" alt="logo bigscreen" />
+<ul class="nav flex-column align-items-center">
+    <li class="nav-item">
+        <a class="nav-link active" href="{{route('charts')}}">Accueil</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('question')}}">Questionnaires</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('answer')}}">Réponse</a>
+    </li>
+</ul>
 
-        <li class="{{ (request()->is('/')) ? 'active' : '' }} nav-item">
-            <a class="nav-link" href="{{route('home')}}">Accueil <span class="sr-only"> (current) </span></a>
-        </li>
+<style>
+img{
+    width:16rem;
+}
 
-        <li class="{{ (request()->is('solde')) ? 'active' : '' }} nav-item">
-            <a class="nav-link" href="{{route('show_product_solde')}}"> Questionnaire<span class="sr-only"> (current)
-                </span></a>
-        </li>
-
-        <li class="{{ (request()->is('solde')) ? 'active' : '' }} nav-item">
-            <a class="nav-link" href="{{route('show_product_solde')}}"> Réponses<span class="sr-only"> (current)
-                </span></a>
-        </li>
-    </ul>
-
-    @else
-    @endif
-</nav> --}}
+li a {
+    font-size: 1.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color:#ffffff;
+}
+</style>
