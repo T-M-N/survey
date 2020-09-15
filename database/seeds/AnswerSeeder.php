@@ -14,108 +14,161 @@ class AnswerSeeder extends Seeder
     {
         $dataAnswer = [
         [
-        'option' => 'homme',
-        'question_id' => 3
+            'option' => null,
+            'question_id' => 1
         ],
         [
-        'option' => 'femme',
-        'question_id' => 3
+            'option' => null,
+            'question_id' => 2
         ],
-        [ 'option'=>'Préfère ne pas répondre',
-        'question_id' => 3
-        ],
-        [
-        'option' => 'Occulus Rift/s',
-        'question_id' => 6
+        [   
+            'option' => 'homme',
+            'question_id' => 3
         ],
         [
-        'option' => 'HTC Vive',
-        'question_id' => 6
+            'option' => 'femme',
+            'question_id' => 3
+        ],
+        [ 
+            'option'=>'Préfère ne pas répondre',
+            'question_id' => 3
         ],
         [
-        'option' => 'Windows Mixed Reality',
-        'question_id' => 6
+            'option' => null,
+            'question_id' => 4
         ],
         [
-        'option' => 'PSVR',
-        'question_id' => 6
+            'option' => null,
+            'question_id' => 5
         ],
         [
-        'option' => 'SteamVR',
-        'question_id' => 7
+            'option' => 'Occulus Rift/s',
+            'question_id' => 6
         ],
         [
-        'option' => 'Occulus store',
-        'question_id' => 7
+            'option' => 'HTC Vive',
+            'question_id' => 6
         ],
         [
-        'option' => 'Viveport',
-        'question_id' => 7
+            'option' => 'Windows Mixed Reality',
+            'question_id' => 6
         ],
         [
-        'option' => 'Playstation VR',
-        'question_id' => 7
+            'option' => 'PSVR',
+            'question_id' => 6
         ],
         [
-        'option' => 'Google Play',
-        'question_id' => 7
+            'option' => 'SteamVR',
+            'question_id' => 7
         ],
         [
-        'option' => 'Windows store',
-        'question_id' => 7
+            'option' => 'Occulus store',
+            'question_id' => 7
         ],
         [
-        'option' => 'Occulus Quest',
-        'question_id' => 8
+            'option' => 'Viveport',
+            'question_id' => 7
         ],
         [
-        'option' => 'Occulus Go',
-        'question_id' => 8
+            'option' => 'Playstation VR',
+            'question_id' => 7
         ],
         [
-        'option' => 'HTC Vive Pro',
-        'question_id' => 8
+            'option' => 'Google Play',
+            'question_id' => 7
         ],
         [
-        'option' => 'Autre',
-        'question_id' => 8
+            'option' => 'Windows store',
+            'question_id' => 7
         ],
         [
-        'option' => 'Aucun',
-        'question_id' => 8
+            'option' => 'Occulus Quest',
+            'question_id' => 8
         ],
         [
-        'option' => 'regarder des émissions TV en direct',
-        'question_id' => 10
+            'option' => 'Occulus Go',
+            'question_id' => 8
         ],
         [
-        'option' => 'regarder des films',
-        'question_id' => 10
+            'option' => 'HTC Vive Pro',
+            'question_id' => 8
         ],
         [
-        'option' => 'jouer en solo',
-        'question_id' => 10
+            'option' => 'Autre',
+            'question_id' => 8
         ],
         [
-        'option' => 'jouer en team',
-        'question_id' => 10
+            'option' => 'Aucun',
+            'question_id' => 8
         ],
         [
-        'option' => 'Oui',
-        'question_id' => 16
+            'option' => null,
+            'question_id' => 9
         ],
         [
-        'option' => 'Non',
-        'question_id' => 16
+            'option' => 'regarder des émissions TV en direct',
+            'question_id' => 10
         ],
         [
-        'option' => 'Oui',
-        'question_id' => 17
+            'option' => 'regarder des films',
+            'question_id' => 10
         ],
         [
-        'option' => 'Non',
-        'question_id' => 17
+            'option' => 'jouer en solo',
+            'question_id' => 10
         ],
+        [
+            'option' => 'jouer en team',
+            'question_id' => 10
+        ],
+        [
+            'option' => null,
+            'question_id' => 11
+        ],
+        [
+            'option' => null,
+            'question_id' => 12
+        ],
+        [
+            'option' => null,
+            'question_id' => 13
+        ],
+        [
+            'option' => null,
+            'question_id' => 14
+        ],
+        [
+         'option' => null,
+         'question_id' => 15
+        ],
+        [
+            'option' => 'Oui',
+            'question_id' => 16
+        ],
+        [
+            'option' => 'Non',
+            'question_id' => 16
+        ],
+        [
+            'option' => 'Oui',
+            'question_id' => 17
+        ],
+        [
+            'option' => 'Non',
+            'question_id' => 17
+        ],
+        [
+            'option' => null,
+            'question_id' => 18
+        ],
+        [
+            'option' => null,
+            'question_id' => 19
+        ],
+        [
+            'option' => null,
+            'question_id' => 20
+        ]
     ];
 
         foreach($dataAnswer as $dt){

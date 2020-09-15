@@ -1,0 +1,43 @@
+/* CSS général back admin */
+body{
+    background:#233040;
+}
+*{
+    font-family: 'Sen', sans-serif;
+}
+
+a:hover{
+    cursor: pointer !important;
+}
+
+.container-fluid{
+    padding:2em;
+}
+
+.row{
+    flex-direction: row-reverse;
+}
+.background{
+    position: fixed;
+    left:35px;
+}
+
+/* CSS Pour l'admin */
+#backSurvey .container-fluid {
+    padding: 2em;
+}
+
+.row#backSurvey {
+    width: 95%;
+    max-width: 1200px;
+    margin: auto !important;
+}
+
+#backSurvey .background {
+    background: linear-gradient(77deg, rgba(2, 190, 110, 1) 0%, rgba(47, 203, 210, 1) 100%);
+}
+
+#backSurvey .table .thead-light th {
+    background: transparent !important;
+    border-color: #2fcbd2 !important;
+}

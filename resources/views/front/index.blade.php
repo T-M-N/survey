@@ -38,8 +38,8 @@ Page sondage
 
             @if($question->type=='A')
               <select onchange="disabledForm()" id="question_{{ $question->id }}" name="question_{{ $question->id }}">
-                @foreach($question->answers as $rep)
-                  <option value="{{$rep->id}}">{{$rep->option}}</option>
+                @foreach($question->answers as $answer)
+                  <option value="{{$answer->id}}">{{$answer->option}}</option>
                 @endforeach
               </select>
             
@@ -67,19 +67,19 @@ Page sondage
 
 @section('scripts')
 <script>
-//   const email = document.getElementById('question_1');
+  const email = document.getElementById('question_1');
 
-//   function disabledForm(){
-//     document.getElementBy('question_1').addEventListener('change', function() {
-//       if (email == email) {
-//         document.getElementsByTagName('select').disabled = false;
-//         document.getElementsByTagName('input').disabled = false;
-//       } else {
-//       document.getElementsByTagName('select').disabled = true;
-//       document.getElementsByTagName('input').disabled = true;
-//     } 
-//   }
+  function disabledForm(){
+    document.getElementBy('question_1').addEventListener('change', function() {
+      if (email == email) {
+        document.getElementsByTagName('select').disabled = false;
+        document.getElementsByTagName('input').disabled = false;
+      } else {
+      document.getElementsByTagName('select').disabled = true;
+      document.getElementsByTagName('input').disabled = true;
+    } 
+  }
 
-// });
+});
 </script>
 @show

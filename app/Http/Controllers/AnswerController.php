@@ -31,34 +31,35 @@ class AnswerController extends Controller
             $questions = Question::all();
             $email = $request->input('question_1');
             $user = User::where('email', $email)->first();
-            $answers = []; 
+            $user->answers()->detach();
 
+            // dump($request->all());
             foreach($questions as $question){
-                $name = "question_".$question->id;
-                $answer_given = $request->input($name);
+               
+                $answer_given = $request->input('question_'.$question->id);
+                // dump($question->type);
+                // dump('question_'.$question->id);
+                if($answer_given){
+                    if($question->type === 'A'){
+                        $answer = Answer::find($answer_given);
+                    }
 
-                if($question->type === 'A'){
-                    $answer = Answer::where('id', $answer_given)->get('id');
-                }else{
-                    
-                    //question de type B et C
-                      
-                    $insertData = Answer::create(array(
-                        'option'=>$answer_given
-                    ));
+                    if($question->type === 'B'){
+                        $answer = $question->answers()->first();
+                        // dump($answer);
+                        $answer->option = $answer_given;
+                        $answer->save();
+                    }
+                   
+                    if($question->type === 'C'){
+                        $answer = $question->answers()->first();
+                        // dump($answer);
+                        $answer->option = $answer_given;
+                        $answer->save();
+                    }
 
-                    $insertData->question()->associate($question->id);
-                    $insertData->save();
-                }     
-         
-            array_push($answers, [
-                'insertData'=>$insertData,
-                'answer_given'=>$answer_given,
-                'question'=>$name,
-                'type'=>$question->type
-                ]);
-
-                $user->answers()->attach($insertData);
+                     $user->answers()->attach($answer);
+                }
             }
 
             $user->URL = Str::random(20);

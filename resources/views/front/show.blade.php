@@ -22,7 +22,7 @@ Page validation de sondage
                 </label>
             </p>
         
-            @if($answer->question->type =='A')
+                @if($answer->question->type =='A')
                 <p>{{ $answer->option }}</p>
             
                 @elseif($answer->question->type == 'B')
@@ -30,6 +30,7 @@ Page validation de sondage
 
                 @elseif($answer->question->type == 'C')
                 <p>{{ $answer->option }}</p>
+                
             @endif
         @endforeach
         </div>

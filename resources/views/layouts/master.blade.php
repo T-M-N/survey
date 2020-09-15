@@ -97,9 +97,9 @@ label{
     margin:0;
 }
 
-#survey select{
+/* #survey select{
    border: 3px dashed #b7b7b7;
-}
+} */
 header img {
     width: 15rem;
 }
