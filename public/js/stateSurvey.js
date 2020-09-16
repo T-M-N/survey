@@ -15,21 +15,20 @@ function stateSurvey(users){
 
     if (emailArray.includes(users)){
         //email dans data
-        for(let i=2; i <= 19; i++){
+        for(let i=2; i <= 20; i++){
             let question_id = 'question_'+i;
             document.getElementById(question_id).disabled = false;
             console.log(question_id);
         }
        
     }else{
-        for (let i = 2; i <= 19; i++) {
+        for (let i=2; i <= 20; i++) {
             let question_id = 'question_' + i;
             document.getElementById(question_id).disabled = true;
             console.log(question_id);
         }
     }
     // console.log(emailArray.includes(users));
-
 }
     const inputMail = document.getElementById('question_1');
 
