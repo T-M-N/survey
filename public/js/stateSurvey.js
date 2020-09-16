@@ -30,6 +30,7 @@ function stateSurvey(users){
     }
     // console.log(emailArray.includes(users));
 }
+
     const inputMail = document.getElementById('question_1');
 
     inputMail.addEventListener('change', function(){

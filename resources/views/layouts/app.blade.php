@@ -18,6 +18,7 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/login.css') }}" rel="stylesheet">
     </head>
     <body>
         <div id="app">
@@ -54,7 +55,7 @@
                                         {{ Auth::user()->name }}
                                     </a>
 
-                                    <div>
+                                    {{-- <div>
                                         <a  href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
@@ -65,7 +66,7 @@
                                             @csrf
                                         </form>
                                     </div>
-                                </li>
+                                </li> --}}
                             @endguest
                         </ul>
                     </div>
@@ -76,31 +77,5 @@
                 @yield('content')
             </main>
         </div>
-
-        <style>
-            .card-header{
-                background:#1DB8F1;
-            }
-            label{
-                color:#474747;
-            }
-
-            .btn-primary{
-                background:#474747; 
-                border:none;
-            }
-            .btn-primary:hover{
-            background:#1DB8F1; 
-            }
-            .card-body{
-                padding: 4em;
-            }
-            .card-header{
-                text-align: center;
-            }
-            .card-header img {
-            width: 15rem;
-            }
-        </style>
     </body>
 </html>

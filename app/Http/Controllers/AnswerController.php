@@ -17,6 +17,9 @@ class AnswerController extends Controller
         // {
         //     $this->user = User::find(1);
         // }
+        public function index(){
+            return redirect()->route('home');
+        }
 
         public function store(Request $request)
         {

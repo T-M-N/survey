@@ -1,0 +1,32 @@
+body{
+    background: #233040;
+}
+
+.card-header {
+    background: #1DB8F1;
+}
+
+label {
+    color: #474747;
+}
+
+.btn-primary {
+    background: #474747;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #1DB8F1;
+}
+
+.card-body {
+    padding: 4em;
+}
+
+.card-header {
+    text-align: center;
+}
+
+.card-header img {
+    width: 15rem;
+}

@@ -5,10 +5,20 @@
         <a class="nav-link active" href="{{route('charts')}}">Accueil</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{route('question')}}">Questionnaires</a>
+        <a class="nav-link" href="{{route('question')}}">Questionnaire</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{route('answer')}}">Réponse</a>
+        <a class="nav-link" href="{{route('answer')}}">Réponses</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link"  href="{{ route('logout') }}" onclick="event.preventDefault();
+         document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+    </li>
+
 </ul>
 </div>

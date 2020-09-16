@@ -2,6 +2,7 @@
 body{
     background:#233040;
 }
+
 *{
     font-family: 'Sen', sans-serif;
 }
@@ -18,9 +19,9 @@ a:hover{
     position: fixed;
     top:100px;
 }
-/* CSS Pour l'admin */
-#backSurvey .container-fluid {
-    padding: 2em;
+
+#backSurvey{
+    height:100%;
 }
 
 .row#backSurvey {
@@ -28,7 +29,7 @@ a:hover{
 }
 
 #backSurvey .background {
-    background: linear-gradient(77deg, rgba(2, 190, 110, 1) 0%, rgba(47, 203, 210, 1) 100%);
+     background: linear-gradient(110deg, #1db8f1, #1dbbbb);
 }
 
 #backSurvey .table .thead-light th {
