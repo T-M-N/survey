@@ -5,7 +5,7 @@ Page sondage
 @endsection
 
 @section('content')
-  <div class="container">
+  <div class="container" id="app">
     <div id="survey" class='contentBack'>
       <header>
        <p><img src="/image/bigscreen_logo.png" alt="logo bigscreen"/></p>     
@@ -37,18 +37,18 @@ Page sondage
             </label></p>
 
             @if($question->type=='A')
-              <select onchange="disabledForm()" id="question_{{ $question->id }}" name="question_{{ $question->id }}">
+              <select  id="question_{{ $question->id }}" name="question_{{ $question->id }}">
                 @foreach($question->answers as $answer)
                   <option value="{{$answer->id}}">{{$answer->option}}</option>
                 @endforeach
               </select>
             
             @elseif($question->type == 'B')
-            <input onchange="disableForm()" type="text" id="question_{{ $question->id }}" name="question_{{ $question->id }}"/>
+            <input  type="text" id="question_{{ $question->id }}" name="question_{{ $question->id }}"/>
             @if($errors->has('question_'.$question->id) ? 'is-invalid' : '') <span class="error bg-warning">{{ $errors->first('question_'.$question->id)}}</span> @endif
          
             @elseif($question->type == 'C')
-                  <select onchange="disableForm()" id="question_{{ $question->id }}" name="question_{{ $question->id }}">
+                  <select  id="question_{{ $question->id }}" name="question_{{ $question->id }}">
                     @for ($i = 1; $i < 6; $i++)
                       <option value={{ $i }}>{{$i}}</option>
                     @endfor        
@@ -64,22 +64,3 @@ Page sondage
     </div>
   </div>
 @endsection
-
-@section('scripts')
-<script>
-  const email = document.getElementById('question_1');
-
-  function disabledForm(){
-    document.getElementBy('question_1').addEventListener('change', function() {
-      if (email == email) {
-        document.getElementsByTagName('select').disabled = false;
-        document.getElementsByTagName('input').disabled = false;
-      } else {
-      document.getElementsByTagName('select').disabled = true;
-      document.getElementsByTagName('input').disabled = true;
-    } 
-  }
-
-});
-</script>
-@show

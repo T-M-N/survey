@@ -1,9 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Chart;
-
 use App\Question;
 use App\Answer;
 use App\User;

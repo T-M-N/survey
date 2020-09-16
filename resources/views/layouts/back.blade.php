@@ -19,7 +19,7 @@
     <div class="container-fluid" id="app">
         <div class="row" id="backSurvey">
             <div
-                class="background shadow-sm p-3 mb-5 rounded  col-sm-4 d-flex justify-content-center align-items-center flex-column">
+                class="background shadow-sm p-3 mb-5 rounded col-sm-4 d-flex flex-column align-items-center">
                 @include('partials.menu')
             </div>
             <div class="col-sm-8 shadow-sm p-5 mb-5 bg-white rounded padding-2em">

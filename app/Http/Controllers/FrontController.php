@@ -14,7 +14,18 @@ class FrontController extends Controller
       $questions = Question::all(); 
       $options= Answer::all();  
       
-      return view('front.index', ['questions' => $questions, 'options' => $options]); 
+      return view('front.index', [
+         'questions' => $questions, 
+         'options' => $options
+      ]); 
+   }
+
+   public function getJsonUser(){
+       $users = User::pluck('email')->toArray();
+
+       return response()->json([
+         'users'=>$users,
+       ]);
    }
 
 }

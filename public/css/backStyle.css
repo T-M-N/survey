@@ -14,22 +14,16 @@ a:hover{
     padding:2em;
 }
 
-.row{
-    flex-direction: row-reverse;
-}
-.background{
+.left-nav{
     position: fixed;
-    left:35px;
+    top:100px;
 }
-
 /* CSS Pour l'admin */
 #backSurvey .container-fluid {
     padding: 2em;
 }
 
 .row#backSurvey {
-    width: 95%;
-    max-width: 1200px;
     margin: auto !important;
 }
 

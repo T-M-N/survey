@@ -22,10 +22,6 @@ class AnswerSurveyController extends Controller
         return view('back.survey.answer', [
          'userAnswers' => $userAnswers
         ]);
-
-        // return response()->json([
-        //  'userAnswers' => $userAnswers
-        // ]);
     }
 
     /**
