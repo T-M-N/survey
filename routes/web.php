@@ -13,22 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'FrontController@index')->name('home');
-Route::get('state', 'FrontController@getJsonUser');
+// Section public survey
+Route::get('/', 'SurveyController@index')->name('survey');
+Route::get('state', 'SurveyController@getJSONUser');
 
-//validation survey
-Route::resource('validation', 'AnswerController');
-Route::get('/validation/{url}', 'AnswerController@show')->name('url');
+// Url question answer list
+Route::resource('validation', 'AnswerUrlController');
+Route::get('/validation/{url}', 'AnswerUrlController@show')->name('url');
 
-// //back
-// Route::resource('admin', 'DashController');
-
-Route::get('administration', 'StatistiqueController@index')->middleware('auth');
-Route::get('administration/statistique', 'StatistiqueController@index')->name('charts');
-Route::get('administration/question', 'QuestionController@index')->name('question');
-Route::get('administration/reponse', 'AnswerSurveyController@index')->name('answer');
+// Section privée admin
+Route::get('administration', 'AdminController@index')->middleware('auth');
+Route::get('administration/statistique', 'AdminController@index')->name('charts');
+Route::get('administration/question', 'AdminController@questionTypeList')->name('question');
+Route::get('administration/reponse', 'AdminController@userAnswerList')->name('answer');
 
 // API - Chart JS
-Route::get('chart/getData','StatistiqueController@getJSONChartData');
+Route::get('chart/getData','AdminController@getJSONChartData');
 
 Auth::routes();

@@ -18,18 +18,14 @@ header{
 }
 
 .padding-2-em{
-    padding:2em;
+    padding:0em 2em;
 }
 
 form{
-    padding: 2em;
     background: #ffffff;
 }
-/* form, .padding-2-em {
-    padding: 1em;
-} */
 
-input, select {
+input[type="text"], select {
     border-color: rgb(255 255 255 / 30%);
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -39,9 +35,20 @@ input, select {
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 2px solid #1db9dd;
+    border: 1px solid #000000;
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+
+input[type="radio"] ~ span{
+    padding: 0px 15px;
+}
+
+.option-dotted {
+    border: 2px dotted #dedede;
+    padding: 1em;
+    margin-top: 0.5em;
 }
 
 #valider {
@@ -51,7 +58,7 @@ input, select {
 
 input[type=submit] {
     width: 100%;
-    background-color: #474747;
+    background-color: #1DB8EF;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -62,6 +69,7 @@ input[type=submit] {
 
 input[type=submit]:hover {
     background: #ffffff;
+    border:2px solid #233040;
     color: #233040;
 }
 
@@ -83,6 +91,7 @@ label {
 }
 
 .contentBack h2 {
+    padding-top: 1em;
     font-size: 1.2em;
     font-weight: 700;
 }
@@ -90,10 +99,6 @@ label {
 .contentBack p {
     margin: 0;
 }
-
-/* #survey select{
-   border: 3px dashed #b7b7b7;
-} */
 
 header img {
     width: 15rem;

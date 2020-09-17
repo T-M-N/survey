@@ -7,9 +7,8 @@ use App\Question;
 use App\Answer;
 use App\User;
 
-class FrontController extends Controller
+class SurveyController extends Controller
 {
-   //c'est lier au formulaire
    public function index(){ 
       $questions = Question::all(); 
       $options= Answer::all();  
@@ -20,7 +19,7 @@ class FrontController extends Controller
       ]); 
    }
 
-   public function getJsonUser(){
+   public function getJSONUser(){
        $users = User::pluck('email')->toArray();
 
        return response()->json([

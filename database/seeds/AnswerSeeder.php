@@ -22,11 +22,11 @@ class AnswerSeeder extends Seeder
             'question_id' => 2
         ],
         [   
-            'option' => 'homme',
+            'option' => 'Homme',
             'question_id' => 3
         ],
         [
-            'option' => 'femme',
+            'option' => 'Femme',
             'question_id' => 3
         ],
         [ 
@@ -106,19 +106,19 @@ class AnswerSeeder extends Seeder
             'question_id' => 9
         ],
         [
-            'option' => 'regarder des émissions TV en direct',
+            'option' => 'Regarder des émissions TV en direct',
             'question_id' => 10
         ],
         [
-            'option' => 'regarder des films',
+            'option' => 'Regarder des films',
             'question_id' => 10
         ],
         [
-            'option' => 'jouer en solo',
+            'option' => 'Jouer en solo',
             'question_id' => 10
         ],
         [
-            'option' => 'jouer en team',
+            'option' => 'Jouer en team',
             'question_id' => 10
         ],
         [
@@ -138,8 +138,8 @@ class AnswerSeeder extends Seeder
             'question_id' => 14
         ],
         [
-         'option' => null,
-         'question_id' => 15
+            'option' => null,
+            'question_id' => 15
         ],
         [
             'option' => 'Oui',

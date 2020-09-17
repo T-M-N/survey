@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Page url finalisation sondage
+@endsection
+
 @section('content')
 <div id="validateSurvey" >
     <header>

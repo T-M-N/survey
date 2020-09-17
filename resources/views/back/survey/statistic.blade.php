@@ -1,7 +1,7 @@
 @extends('layouts.back')
 
 @section('title')
-Page statistique
+    Page statistique
 @endsection
 
 @section('content')

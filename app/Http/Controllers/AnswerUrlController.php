@@ -9,16 +9,10 @@ use App\Question;
 use App\Answer;
 use App\User;
 
-class AnswerController extends Controller
+class AnswerUrlController extends Controller
 {
-    // private $user = null;
-
-        // public function __constructor()
-        // {
-        //     $this->user = User::find(1);
-        // }
         public function index(){
-            return redirect()->route('home');
+            return redirect()->route('survey');
         }
 
         public function store(Request $request)
@@ -36,12 +30,9 @@ class AnswerController extends Controller
             $user = User::where('email', $email)->first();
             $user->answers()->detach();
 
-            // dump($request->all());
-            foreach($questions as $question){
-               
+            foreach($questions as $question){               
                 $answer_given = $request->input('question_'.$question->id);
-                // dump($question->type);
-                // dump('question_'.$question->id);
+            
                 if($answer_given){
                     if($question->type === 'A'){
                         $answer = Answer::find($answer_given);
@@ -49,14 +40,12 @@ class AnswerController extends Controller
 
                     if($question->type === 'B'){
                         $answer = $question->answers()->first();
-                        // dump($answer);
                         $answer->option = $answer_given;
                         $answer->save();
                     }
                    
                     if($question->type === 'C'){
                         $answer = $question->answers()->first();
-                        // dump($answer);
                         $answer->option = $answer_given;
                         $answer->save();
                     }
@@ -75,15 +64,7 @@ class AnswerController extends Controller
     }
 
     public function show($url){
-
         $userAnswer = User::with(['answers','answers.question'])->where([['url', $url,]])->first();
-        // $answers = $user->answers()->get();
-
-        // return response()->json([
-        // 'userAnswer'=>$userAnswer
-        // ]);
-
         return view('front.show', [ 'userAnswer'=>$userAnswer]);
-
     }
 }

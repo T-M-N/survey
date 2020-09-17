@@ -1,7 +1,7 @@
 @extends('layouts.back')
 
 @section('title')
-Page sondage
+    Page liste des questions
 @endsection
 
 @section('content')
