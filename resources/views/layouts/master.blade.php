@@ -10,8 +10,9 @@
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
-    <link href="{{asset('css/surveyStyle.css')}}" rel="stylesheet">
-    <link href="{{asset('css/answerUrl.css')}}" rel="stylesheet">
+    <link href="{{asset('css/main.css')}}" rel="stylesheet">
+    <link href="{{asset('css/survey.css')}}" rel="stylesheet">
+    <link href="{{asset('css/sucessURL.css')}}" rel="stylesheet">
 </head>
 <body>
 <div class="container">
@@ -23,6 +24,7 @@
 
 </div>
 @section('scripts')
+<script src="{{asset('js/localhostURL.js')}}"></script>
 <script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('js/stateSurvey.js')}}"></script>
 @show

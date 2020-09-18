@@ -6,8 +6,8 @@
 
 @section('content')
   <div class="container" id="app">
-    <div id="survey" class='contentBack'>
-      <header>
+    <div id="survey" class='background-survey bg-white'>
+      <header class="p-3">
        <p><img src="/image/bigscreen_logo.png" alt="logo bigscreen"/></p>     
        <h1>Merci de répondre à toutes les questions et de valider le formulaire en bas de page.</h1>
       </header>
@@ -16,8 +16,7 @@
         <p>Tous les champs sont obilgatoires ou peut-être comporte t-il des erreurs !</p>
       </div>
       @endif
-      {{-- ne pas mettre de route pour celui la car dans la list route on a que le mot send du coup pas de chemin spécifique --}}
-      <form class="padding-2-em" action="{{ route('validation.store') }}" method="post"  enctype="multipart/form-data">
+      <form class="pt-2 pl-5 pb-2 pr-5" action="{{ route('validation.store') }}" method="post"  enctype="multipart/form-data">
         {{ csrf_field() }}
         
         <!-- on a affiché la question d'abord 

@@ -1,9 +1,6 @@
-body{
-    background: #233040;
-}
-
 .card-header {
-    background: #1DB8F1;
+    background: -o-linear-gradient(280deg, #1db8f1, #1dbbbb);
+    background: linear-gradient(170deg, #1db8f1, #1dbbbb);
 }
 
 label {
@@ -29,4 +26,21 @@ label {
 
 .card-header img {
     width: 15rem;
+}
+
+.login nav {
+    display: none;
+}
+
+main {
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 }

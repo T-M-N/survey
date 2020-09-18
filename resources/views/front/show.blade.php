@@ -5,13 +5,13 @@
 @endsection
 
 @section('content')
-<div class="contentBack">
+<div class="background-survey bg-white">
     <div>
-        <header>
+        <header class="p-3">
             <img src="/image/bigscreen_logo.png" alt="logo bigscreen" />
             <h1>Liste de vos réponses</h1>
         </header>
-        <div class="padding-2-em col-mb-3">
+        <div class="pt-2 pl-5 pb-2 pr-5 col-mb-3">
         @foreach($userAnswer->answers as $answer)
                 <p>
                     <label for="question">

@@ -2,7 +2,8 @@ function createChart(itemData, count) {
     let resultDiv = document.getElementById("chartDataDiv");
     /* Créer une division response */
     let divResponsive = document.createElement("div");
-    divResponsive.setAttribute("class", "col-md-6");
+    divResponsive.setAttribute("class", "col-md-12");
+    divResponsive.setAttribute("class", "col-lg-6");
     /* Créer un canvas pour chaque item */
     let newCanvas = document.createElement("canvas");
     newCanvas.setAttribute("id", "myChart" + count);
@@ -19,8 +20,9 @@ function createChart(itemData, count) {
     }
 }
 
-if (document.getElementById("chartDataDiv")) {
-    fetch('http://127.0.0.1:8000/chart/getData')
+if(document.getElementById("chartDataDiv")) {
+    const url = getMyURL()+'chart/getData';
+    fetch(url)
         .then((resp) => resp.json())
         .then(function (data) {
             let countTemp = 0;

@@ -1,11 +1,8 @@
 function stateSurvey(users){
-    let email = document.getElementById('question_1');
-  
-
-    fetch('http://127.0.0.1:8000/state')
+    const url = getMyURL() + 'state';
+    fetch(url)
         .then((resp) => resp.json())
         .then(function (data) {
-            // console.log(data.users);
             localStorage.setItem('userList', data.users);
         });
     
