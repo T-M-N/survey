@@ -15,8 +15,9 @@
         @foreach($userAnswers as $userAnswer)
             @if(sizeof($userAnswer->answers) != 0)
                 <h1>{{ $userAnswer->username }}</h1>
-                <table class="table">
-                    <thead class="thead-light">
+                <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead class="thead-dark">
                         <tr>
                             <th>ID</td>
                             <th>QUESTIONS</th>
@@ -33,6 +34,7 @@
                         @endforeach
                     </tbody>
                 </table>
+            </div>
             @endif
         @endforeach
     @endif

@@ -18,7 +18,7 @@ class AnswerUrlController extends Controller
         public function store(Request $request)
         {
              $data = $request->validate([
-             'question_1' => 'required|max:255',
+             'question_1' => 'required|email|max:255',
              'question_2' => 'required|max:255',
              'question_5' => 'required|max:255',
              'question_20' => 'required|max:255'

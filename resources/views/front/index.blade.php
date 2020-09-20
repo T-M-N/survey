@@ -13,25 +13,16 @@
       </header>
       @if ($errors->any())
       <div class="alert alert-danger">
-        <p>Tous les champs sont obilgatoires ou peut-être comporte t-il des erreurs !</p>
+        <p>Je vous rappelle que toutes les questions sont obligatoires. Vérifier le formulaire peut-être comporte t-il des erreurs.</p>
       </div>
       @endif
       <form class="pt-2 pl-5 pb-2 pr-5" action="{{ route('validation.store') }}" method="post"  enctype="multipart/form-data">
         {{ csrf_field() }}
-        
-        <!-- on a affiché la question d'abord 
-        on a fait une boucle qui permet d'afficher toutes lesquestions
-        une fois dans foreach j'affiche question label
-        afficher les options qui correspondent à chaque questions
-        question -> answer représente un tableau des options rattaché à la question
-        rep repésente obj rép
-        la boucle foreach permet d'afficher la liste des options rattaché à la question
-        -->
           @foreach($questions as $question)
               <div class="col-mb-3">
               <h2> Questions {{ $question->id }} /20</h2>
               <label for="question">            
-                {{$question->question_label}}
+                {{$question->question_label}} *
               </label>
 
               @if($question->type=='A' && $question->id!=3)

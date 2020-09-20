@@ -1,5 +1,6 @@
 body {
     background-color: #233040;
+
 }
 
 * {
@@ -54,4 +55,8 @@ label {
 
 .background-survey p {
     margin: 0;
+}
+
+.table-hover tbody tr:hover{
+    background-color: rgb(29 185 215 / 46%);
 }
