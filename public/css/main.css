@@ -1,6 +1,5 @@
 body {
     background-color: #233040;
-
 }
 
 * {
@@ -40,6 +39,7 @@ label {
 }
 
 /* Background pour le survey et la page réponse accès URL */
+
 .background-survey h1 {
     color: #233040;
     padding-left: 0.5em;
@@ -57,6 +57,10 @@ label {
     margin: 0;
 }
 
-.table-hover tbody tr:hover{
+.table-hover tbody tr:hover {
     background-color: rgb(29 185 215 / 46%);
+}
+
+.chartjs-render-monitor{
+    padding: 2em;
 }

@@ -83,11 +83,11 @@ class QuestionSeeder extends Seeder
             ],
             [
                 'question_label' => 'Aimeriez vous pouvoir enregistrer des émissions TV pour pouvoir les regarder ultérieurement ?',
-                'type' => 'C',
+                'type' => 'A',
             ],
             [
                 'question_label' => 'Aimeriez vous jouer à des jeux exclusifs sur votre Bigscreen ?',
-                'type' => 'C',
+                'type' => 'A',
             ],
             [
                 'question_label' => 'Quelle nouvelle fonctionnalité de vos rêve devrait exister sur Bigscreen ?',

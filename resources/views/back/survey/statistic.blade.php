@@ -5,5 +5,9 @@
 @endsection
 
 @section('content')
-<div class="row" id="chartDataDiv"></div>
+<div class="flex">
+<div class="row justify-content-center" id="pieChartLoc"></div>
+
+<div class="row" id="doughNutChartLoc"></div>
+</div>
 @endsection

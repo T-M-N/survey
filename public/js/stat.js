@@ -1,5 +1,5 @@
 function createChart(itemData, count) {
-    let resultDiv = document.getElementById("chartDataDiv");
+    let resultDiv = document.getElementById("pieChartLoc");
     /* Créer une division response */
     let divResponsive = document.createElement("div");
     divResponsive.setAttribute("class", "col-md-12");
@@ -20,8 +20,8 @@ function createChart(itemData, count) {
     }
 }
 
-if(document.getElementById("chartDataDiv")) {
-    const url = getMyURL()+'chart/getData';
+if (document.getElementById("pieChartLoc")) {
+    const url = getMyURL() + 'chart/getData';
     fetch(url)
         .then((resp) => resp.json())
         .then(function (data) {
@@ -32,5 +32,71 @@ if(document.getElementById("chartDataDiv")) {
                     createChart(item, countTemp)
                 )
             );
+        });
+}
+
+
+
+function createChartRadar(itemDataRadar) {
+    let resultDiv = document.getElementById("doughNutChartLoc");
+    /* Créer une division response */
+    let divResponsive = document.createElement("div");
+    divResponsive.setAttribute("class", "col-md-12");
+    divResponsive.setAttribute("class", "col-lg-6");
+    divResponsive.setAttribute("class", "shadow p-3 mb-5 bg-white rounded");
+    /* Créer un canvas pour chaque item */
+    let newCanvas = document.createElement("canvas");
+    newCanvas.setAttribute("id", "myRadar");
+    newCanvas.setAttribute("width", "400");
+    newCanvas.setAttribute("height", "400");
+    divResponsive.appendChild(newCanvas);
+    resultDiv.appendChild(divResponsive);
+    /* Paramétrer chaque graphe */
+    if (document.getElementById("myRadar")) {
+        new Chart(document.getElementById("myRadar"), {
+            type: 'radar',
+            data: {
+                labels: ["Image", "Confort", "Réseau", "Graphisme", "Audio"],
+                datasets: [{
+                    label: "Statistiques",
+                    backgroundColor: "rgba(179,181,198,0.2)",
+                    borderColor: "rgba(179,181,198,1)",
+                    pointBackgroundColor: "rgba(179,181,198,1)",
+                    pointBorderColor: "#000",
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "rgba(179,181,198,1)",
+                    "data": itemDataRadar
+                }],
+            },
+            options: {
+                scale: {
+                    ticks: {
+                        max: 5,
+                        min: 0,
+                        stepSize: 1
+                    }
+                }
+            }
+
+        });
+        console.log(itemDataRadar);
+    }
+}
+
+
+
+if (document.getElementById("doughNutChartLoc")) {
+    const url = getMyURL() + 'chart/getDataRadar';
+    fetch(url)
+        .then((resp) => resp.json())
+        .then(data => {
+            console.log(data.questionData_elt);
+            console.log(data);
+
+            createChartRadar(data.questionData_elt.data.datasets.data);
+
+            console.log(data.questionData_elt.data.labels);
+            console.log(data.questionData_elt.data.datasets.data);
+
         });
 }

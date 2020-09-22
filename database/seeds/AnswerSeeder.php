@@ -158,11 +158,19 @@ class AnswerSeeder extends Seeder
             'question_id' => 17
         ],
         [
-            'option' => null,
+            'option' => 'Oui',
             'question_id' => 18
         ],
         [
-            'option' => null,
+            'option' => 'Non',
+            'question_id' => 18
+        ],
+        [
+            'option' => 'Oui',
+            'question_id' => 19
+        ],
+        [
+            'option' => 'Non',
             'question_id' => 19
         ],
         [

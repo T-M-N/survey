@@ -81,26 +81,6 @@ class AdminController extends Controller
     'idQuestion' => 10,
     'type' => 'pie'
     ],
-    [
-    'idQuestion' => 11,
-    'type' => 'radar'
-    ],
-    [
-    'idQuestion' => 12,
-    'type' => 'radar'
-    ],
-    [
-    'idQuestion' => 13,
-    'type' => 'radar'
-    ],
-    [
-    'idQuestion' => 14,
-    'type' => 'radar'
-    ],
-    [
-    'idQuestion' => 15,
-    'type' => 'radar'
-    ]
     ];
     foreach($questionList as $question){
     array_push($globalData, $this->getChartDataType($question['idQuestion'],$question['type']));
@@ -109,6 +89,63 @@ class AdminController extends Controller
     'globalData'=>$globalData,
     ]);
     }
+
+    // Function to get radar chart data // NEW
+    public function getJSONRadarData(){
+    // Push title and id
+    $questionData_elt = [];
+    $questionData_elt['data'] = [];
+    /* Labels */
+    $questionData_elt['data']['labels'] = ['Qualité de l\'image', 'Confort de l\'utilisation', 'Connection réseau',
+    'Qualité des graphismes', 'Qualité audio'];
+    /* Datasets */
+    $questionData_elt['data']['datasets'] = [];
+    $questionData_elt['data']['datasets']['data'] = [];
+   
+    /* Get count of user who answered survey */
+    $userWhoAnswered = User::whereNotNull('url')->count();
+    /* Questions */
+    $questions = [11,12,13,14,15];
+    foreach($questions as $idQuestion){
+    // Get info of question
+    $questionInfo = Question::with(['answers'])->where('id', $idQuestion)->first()->toArray();
+    $colorPicker = ['#003049','#d62828','#f77f00','#fcbf49','#eae2b7','#006d77','#ffb5a7','#78290f','#001f54'];
+
+    // Get options
+    $choices = Answer::pluck('option');
+    $idThisOption = $idQuestion['id'];
+    // Color
+    $bgColor = '';
+    $ptColor = '#fff';
+    // Count before AVG
+    $sum = 0;
+    foreach($choices as $choice){
+    // Get count of each option by idQuestion
+    $temp = Answer::with(['question'])->where([['option',$choice],['question_id',$idQuestion]])->count();
+    
+    $choice_int = (int) $choice;
+    $sum += $choice_int*$temp;
+    }
+    $countAverage = round($sum / $userWhoAnswered, 2);
+    array_push($questionData_elt['data']['datasets']['data'] , $countAverage);
+    $bgColor = $colorPicker[rand(0,(sizeof($colorPicker)-1))];
+    }
+
+    // $datasetsArray['label'] = 'Réponses enregistrées';
+    // $datasetsArray['backgroundColor'] = $bgColor;
+    // $datasetsArray['borderColor'] = $bgColor;
+    // $datasetsArray['pointBackgroundColor'] = $bgColor;
+    // $datasetsArray['pointHoverBorderColor'] = $bgColor;
+    // $datasetsArray['pointBorderColor'] = $ptColor;
+    // $datasetsArray['pointHoverBackgroundColor'] = $ptColor;
+    
+    return response()->json([
+        'questionData_elt'=>$questionData_elt
+        ]);
+    }
+
+
+
 
 
     public function questionTypeList(){
@@ -127,8 +164,4 @@ class AdminController extends Controller
     'userAnswers' => $userAnswers
     ]);
     }
-
-
 }
-
-
