@@ -3,7 +3,7 @@ function createChart(itemData, count) {
     /* Créer une division response */
     let divResponsive = document.createElement("div");
     divResponsive.setAttribute("class", "col-md-12");
-    divResponsive.setAttribute("class", "col-lg-6", "shadow p-3 mb-5 bg-white rounded");
+    divResponsive.setAttribute("class", "col-lg-6");
     /* Créer un canvas pour chaque item */
     let newCanvas = document.createElement("canvas");
     newCanvas.setAttribute("id", "myChart" + count);
@@ -57,7 +57,7 @@ function createChartRadar(itemDataRadar) {
             data: {
                 labels: ["Image", "Confort", "Réseau", "Graphisme", "Audio"],
                 datasets: [{
-                    label: "Statistiques",
+                    label: "La qualité des services",
                     backgroundColor: "rgba(179,181,198,0.2)",
                     borderColor: "rgba(179,181,198,1)",
                     pointBackgroundColor: "rgba(179,181,198,1)",
