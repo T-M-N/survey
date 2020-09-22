@@ -11,3 +11,11 @@
     background: transparent !important;
     border-color: #2fcbd2 !important;
 }
+
+#stat{
+    text-align: center;
+}
+
+#stat h1{
+    font-size:2rem;
+}

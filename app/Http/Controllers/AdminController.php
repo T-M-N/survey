@@ -130,14 +130,6 @@ class AdminController extends Controller
     array_push($questionData_elt['data']['datasets']['data'] , $countAverage);
     $bgColor = $colorPicker[rand(0,(sizeof($colorPicker)-1))];
     }
-
-    // $datasetsArray['label'] = 'Réponses enregistrées';
-    // $datasetsArray['backgroundColor'] = $bgColor;
-    // $datasetsArray['borderColor'] = $bgColor;
-    // $datasetsArray['pointBackgroundColor'] = $bgColor;
-    // $datasetsArray['pointHoverBorderColor'] = $bgColor;
-    // $datasetsArray['pointBorderColor'] = $ptColor;
-    // $datasetsArray['pointHoverBackgroundColor'] = $ptColor;
     
     return response()->json([
         'questionData_elt'=>$questionData_elt

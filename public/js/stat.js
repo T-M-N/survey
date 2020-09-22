@@ -3,7 +3,7 @@ function createChart(itemData, count) {
     /* Créer une division response */
     let divResponsive = document.createElement("div");
     divResponsive.setAttribute("class", "col-md-12");
-    divResponsive.setAttribute("class", "col-lg-6");
+    divResponsive.setAttribute("class", "col-lg-6", "shadow p-3 mb-5 bg-white rounded");
     /* Créer un canvas pour chaque item */
     let newCanvas = document.createElement("canvas");
     newCanvas.setAttribute("id", "myChart" + count);
@@ -43,7 +43,6 @@ function createChartRadar(itemDataRadar) {
     let divResponsive = document.createElement("div");
     divResponsive.setAttribute("class", "col-md-12");
     divResponsive.setAttribute("class", "col-lg-6");
-    divResponsive.setAttribute("class", "shadow p-3 mb-5 bg-white rounded");
     /* Créer un canvas pour chaque item */
     let newCanvas = document.createElement("canvas");
     newCanvas.setAttribute("id", "myRadar");
