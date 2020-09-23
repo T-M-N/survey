@@ -35,6 +35,11 @@ a:hover {
     cursor: pointer !important;
 }
 
+.p-sondage{
+    padding:2em 3em;
+}
+
+
 ::-moz-selection {
     background-color: #233040;
     color: #ffffff;
@@ -56,6 +61,7 @@ header {
     border: 2px dotted #dedede;
     padding: 1em;
     margin-top: 0.5em;
+    margin-bottom: 1.5em;
 }
 
 label {
@@ -93,7 +99,6 @@ button[type=submit]:hover {
 }
 
 .background-survey h2 {
-    padding-top: 1em;
     font-size: 1.2em;
     font-weight: 700;
 }

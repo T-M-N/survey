@@ -5,18 +5,20 @@
 @endsection
 
 @section('content')
-  <div class="container" id="app">
+  <div class="container p-3" id="app">
     <div id="survey" class='background-survey bg-white'>
       <header class="p-3">
        <p><img src="/image/bigscreen_logo.png" alt="logo bigscreen"/></p>     
        <h1>Merci de répondre à toutes les questions et de valider le formulaire en bas de page.</h1>
       </header>
+
       @if ($errors->any())
       <div class="alert alert-danger">
         <p>Je vous rappelle que toutes les questions sont obligatoires. Vérifier le formulaire peut-être comporte t-il des erreurs.</p>
       </div>
       @endif
-      <form class="pt-2 pl-5 pb-2 pr-5" action="{{ route('validation.store') }}" method="post"  enctype="multipart/form-data">
+
+      <form class="p-sondage" action="{{ route('validation.store') }}" method="post"  enctype="multipart/form-data">
         {{ csrf_field() }}
           @foreach($questions as $question)
               <div class="col-mb-3">

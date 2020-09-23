@@ -5,20 +5,17 @@
 @endsection
 
 @section('content')
+<div class="container p-3" id="app">
 <div class="background-survey bg-white">
-    <div>
         <header class="p-3">
             <img src="/image/bigscreen_logo.png" alt="logo bigscreen" />
             <h1>Liste de vos réponses</h1>
         </header>
-        <div class="pt-2 pl-5 pb-2 pr-5 col-mb-3">
+
+        <div class="p-sondage col-mb-3">
         @foreach($userAnswer->answers as $answer)
-                <p>
-                    <label for="question">
-                        <h2> Questions {{ $answer->question->id }} /20</h2>
-                        <p>{{$answer->question->question_label}}</p>
-                    </label>
-                </p>
+                <h2> Questions {{ $answer->question->id }} /20</h2>
+                <p>{{$answer->question->question_label}}</p>
         
                 @if($answer->question->type =='A')
                 <div class="option-dotted">
@@ -37,6 +34,6 @@
             @endif
         @endforeach
         </div>    
-    </div>
+</div>
 </div>
 @endsection
