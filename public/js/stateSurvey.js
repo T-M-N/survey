@@ -31,9 +31,7 @@ function stateSurvey(users){
     const inputMail = document.getElementById('question_1');
 
     inputMail.addEventListener('change', function(){
-        stateSurvey(inputMail.value)
-    }
-        
-    );
+        stateSurvey(inputMail.value);
+    });
 
 

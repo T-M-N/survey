@@ -6,11 +6,13 @@ body {
     font-family: 'Sen', sans-serif;
 }
 
-main {
+.login main,
+#validateSurvey {
     height: 100vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    flex-direction: column;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -46,6 +48,7 @@ header {
     background: -o-linear-gradient(280deg, #1db8f1, #1dbbbb);
     background: linear-gradient(170deg, #1db8f1, #1dbbbb);
     padding: 1em;
+    width:100%;
 }
 
 .option-dotted {
@@ -60,6 +63,25 @@ label {
     margin: 0;
 }
 
+input[type=submit],
+button[type=submit] {
+    width: 100%;
+    background-color: #1DB8EF;
+    color: white;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover,
+button[type=submit]:hover {
+    background: #ffffff;
+    border: 2px solid #233040;
+    color: #233040;
+}
 /* Background pour le survey et la page réponse accès URL */
 
 .background-survey h1 {
@@ -91,7 +113,6 @@ label {
 .nav-item:hover{
     border-bottom:2px solid #fff;
 }
-
 
 .active{
    background: #fff;
