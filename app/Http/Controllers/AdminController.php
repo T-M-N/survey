@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Question;
 use App\Answer;
 use App\User;
-use DB;
 
 class AdminController extends Controller
 {
@@ -30,7 +29,7 @@ class AdminController extends Controller
     }
 
     // Fonction pour récupérer les informations d'une question : PIE CHART
-    public function getChartDataType($id_question,$type){
+    public function getPieChartData($id_question,$type){
     /* Tableau de couleur */
     $colorPicker = ['#1DB8EB','#406E7D','#19E3A7','#E65D53','#B0022F','#006d77','#ffb5a7','#78290f','#001f54'];
     $questions = Question::with(['answers'])->where('id', $id_question)->first()->toArray();
@@ -64,8 +63,8 @@ class AdminController extends Controller
     }
 
     // Fonction qui permet de récupérer les informations des graphes
-    public function getJSONChartData(){
-        $globalData = [];
+    public function getJSONPieChartData(){
+        $pieData = [];
         $questionList = [
             [
             'idQuestion' => 6,
@@ -81,20 +80,20 @@ class AdminController extends Controller
             ],
         ];
         foreach($questionList as $question){
-            array_push($globalData, $this->getChartDataType($question['idQuestion'],$question['type']));
+            array_push($pieData, $this->getPieChartData($question['idQuestion'],$question['type']));
         }
         return response()->json([
-            'globalData'=>$globalData,
+            'pieData'=>$pieData,
         ]);
     }
 
 //Fonction qui permet de mettre en place le Radar
-    public function getJSONRadarData(){
-        $questionData_elt = [];
-        $questionData_elt['data'] = [];
+    public function getJSONRadarChartData(){
+        $questionData = [];
+        $questionData['data'] = [];
         // Datasets
-        $questionData_elt['data']['datasets'] = [];
-        $questionData_elt['data']['datasets']['data'] = [];
+        $questionData['data']['datasets'] = [];
+        $questionData['data']['datasets']['data'] = [];
         // Obtenez le nombre d'utilisateurs qui ont répondu à l'enquête
         $countUserAnswer = User::whereNotNull('url')->count();
         // Questions Radar
@@ -102,7 +101,6 @@ class AdminController extends Controller
         foreach($questions as $idQuestion){
         // Info question
         $questionInfo = Question::with(['answers'])->where('id', $idQuestion)->first()->toArray();
-        $colorPicker = ['#003049','#d62828','#f77f00','#fcbf49','#eae2b7','#006d77','#ffb5a7','#78290f','#001f54'];
         // Je récupère les options de la table answers
         $answers = Answer::pluck('option');
         $idThisOption = $idQuestion['id'];
@@ -115,15 +113,15 @@ class AdminController extends Controller
             $sum += $answer_int*$countEachOption;
             }
             $countAverage = round($sum / $countUserAnswer, 2);
-            array_push($questionData_elt['data']['datasets']['data'], $countAverage);
+            array_push($questionData['data']['datasets']['data'], $countAverage);
         }
         
         return response()->json([
-            'questionData_elt'=>$questionData_elt
+            'questionData'=>$questionData
         ]);
     }
 
-//List question page
+//Liste des questions avec leur type
     public function questionTypeList(){
         $questions = Question::all();
         return view('back.survey.question', [
@@ -132,7 +130,7 @@ class AdminController extends Controller
     }
 
 
-//List answers each users
+//Liste des réponses de chaque utilisateur
     public function userAnswerList(){
         $userAnswers = User::with(['answers','answers.question'])->get();
         return view('back.survey.answer', [

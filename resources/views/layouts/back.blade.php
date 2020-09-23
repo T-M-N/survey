@@ -19,18 +19,20 @@
 </head>
 
 <body>
+
     <div class="container-fluid p-3" id="app">
         <div class="row mx-auto h-100" id="dashboard">
             <div
                 class="col-sm-12 col-md-4 col-lg-3 background shadow-sm rounded pt-5">
                 @include('partials.menu')
             </div>
-            <div class="col-sm-12 col-md-8 col-lg-9 shadow-sm bg-white rounded pt-5">
+            <div class="col-sm-12 col-md-8 col-lg-9 shadow-sm bg-white rounded p-table">
                 @yield('content')
             </div>
         </div>
     </div>
-  
+
+
     @section('scripts')
         <script src="{{asset('js/localhostURL.js')}}"></script>
         <script src="{{asset('js/app.js')}}"></script>

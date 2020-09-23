@@ -6,8 +6,8 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="nav flex-column nav-pills">
-            <li class="{{ (request()->is('/')) ? 'active' : '' }} nav-item m-2">
+        <ul class="nav flex-column nav-pills align-items-center">
+            <li class="{{ (request()->is('administration/statistique')) ? 'active' : '' }} nav-item m-2">
                 <a class="nav-link text-white" href="{{route('charts')}}">Accueil</a>
             </li>
             <li class="{{ (request()->is('administration/question')) ? 'active' : '' }} nav-item m-2">

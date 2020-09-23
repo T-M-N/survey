@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div id="validateSurvey" >
+<div id="validateSurvey">
     <header class="p-3">
          <p><img src="/image/bigscreen_logo.png" alt="logo bigscreen" /></p>
     </header>

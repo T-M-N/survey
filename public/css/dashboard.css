@@ -12,6 +12,10 @@
     border-color: #2fcbd2 !important;
 }
 
+.p-table {
+    padding:2.5em;
+}
+
 .chartjs-render-monitor {
     -webkit-box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
@@ -20,10 +24,3 @@
     padding: 1rem;
 }
 
-#stat {
-    text-align: center;
-}
-
-#stat h1 {
-    font-size: 2rem;
-}

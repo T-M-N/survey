@@ -12,17 +12,19 @@
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <link href="{{asset('css/main.css')}}" rel="stylesheet">
     <link href="{{asset('css/survey.css')}}" rel="stylesheet">
-    <link href="{{asset('css/sucessURL.css')}}" rel="stylesheet">
 </head>
 <body>
+    
+<main>
 <div class="container">
  <div class="row">
     <div class="col-md-12">
         @yield('content')
     </div>
     </div>
-
 </div>
+</main>
+
 @section('scripts')
 <script src="{{asset('js/localhostURL.js')}}"></script>
 <script src="{{asset('js/app.js')}}"></script>

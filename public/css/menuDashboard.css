@@ -1,6 +1,8 @@
 img {
     width: 16rem;
 }
+
+/* Médias queries */
 @media screen and (max-width: 991px) {
     .position-fixed {
         position: relative !important;

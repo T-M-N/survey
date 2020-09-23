@@ -28,7 +28,7 @@ Route::get('administration/question', 'AdminController@questionTypeList')->name(
 Route::get('administration/reponse', 'AdminController@userAnswerList')->name('answer');
 
 // API - Chart JS
-Route::get('chart/getData','AdminController@getJSONChartData');
-Route::get('chart/getDataRadar','AdminController@getJSONRadarData');
+Route::get('chart/getData','AdminController@getJSONPieChartData');
+Route::get('chart/getDataRadar','AdminController@getJSONRadarChartData');
 
 Auth::routes();

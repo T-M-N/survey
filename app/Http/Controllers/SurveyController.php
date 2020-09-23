@@ -21,7 +21,7 @@ class SurveyController extends Controller
 
    public function getJSONUser(){
        $users = User::pluck('email')->toArray();
-
+       
        return response()->json([
          'users'=>$users,
        ]);

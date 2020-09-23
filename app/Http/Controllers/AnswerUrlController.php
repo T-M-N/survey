@@ -54,6 +54,7 @@ class AnswerUrlController extends Controller
                 }
             }
 
+            //url aléatoire pour chaque utilisateur
             $user->URL = Str::random(20);
             $user->save();
        

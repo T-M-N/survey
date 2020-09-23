@@ -12,11 +12,12 @@
     </tr>
 </table>
     @else
+    <h1 class="border-bottom">Les réponses du sondage</h1>
         @foreach($userAnswers as $userAnswer)
             @if(sizeof($userAnswer->answers) != 0)
-                <h1>{{ $userAnswer->username }}</h1>
+                <h2>{{ $userAnswer->username }}</h2>
                 <div class="table-responsive">
-                <table class="table table-striped table-bordered table-hover">
+                <table class="table table-striped table-bordered table-hover p-5">
                     <thead class="thead-dark">
                         <tr>
                             <th>ID</td>

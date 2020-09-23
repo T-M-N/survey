@@ -6,6 +6,28 @@ body {
     font-family: 'Sen', sans-serif;
 }
 
+main {
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+h1{
+    font-size: 1.8em;
+    margin-bottom: 1em;
+}
+
+h2{
+    font-size: 1.6em;
+}
+
 a:hover {
     cursor: pointer !important;
 }
@@ -81,6 +103,7 @@ label {
     color:#1db8eb !important;
 }
 
+/* Médias queries */
 @media screen and (max-width:981px){
     .m-2{
         margin: 0rem !important;

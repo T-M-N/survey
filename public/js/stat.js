@@ -1,17 +1,18 @@
+//Pie chart
 function createChart(itemData, count) {
     let resultDiv = document.getElementById("pieChart");
-    /* Créer une division response */
+    // Créer une division response
     let divResponsive = document.createElement("div");
     divResponsive.setAttribute("class", "col-md-12");
     divResponsive.setAttribute("class", "col-lg-6");
-    /* Créer un canvas pour chaque item */
+    // Créer un canvas pour chaque item 
     let newCanvas = document.createElement("canvas");
     newCanvas.setAttribute("id", "myChart" + count);
     newCanvas.setAttribute("width", "400");
     newCanvas.setAttribute("height", "400");
     divResponsive.appendChild(newCanvas);
     resultDiv.appendChild(divResponsive);
-    /* Paramétrer chaque graphe */
+    // Paramétrer chaque graphique
     if (document.getElementById("myChart" + count)) {
         new Chart(document.getElementById("myChart" + count), {
             "type": itemData.type,
@@ -23,34 +24,34 @@ function createChart(itemData, count) {
 if (document.getElementById("pieChart")) {
     const url = getMyURL() + 'chart/getData';
     fetch(url)
-        .then((resp) => resp.json())
-        .then(function (data) {
-            let countTemp = 0;
-            data.globalData.map(item =>
-                (
+        .then((response) => response.json())
+        .then(data => {
+            let countTemp = 0;           
+            data.pieData.map(item =>
+                {
                     countTemp++,
                     createChart(item, countTemp)
-                )
+                }
             );
         });
 }
 
 
-
+//Radar chart
 function createChartRadar(itemDataRadar) {
     let resultDiv = document.getElementById("radarChart");
-    /* Créer une division response */
+    // Créer une division response */
     let divResponsive = document.createElement("div");
     divResponsive.setAttribute("class", "col-md-12");
     divResponsive.setAttribute("class", "col-lg-6");
-    /* Créer un canvas pour chaque item */
+    //Créer un canvas pour chaque item
     let newCanvas = document.createElement("canvas");
     newCanvas.setAttribute("id", "myRadar");
     newCanvas.setAttribute("width", "400");
     newCanvas.setAttribute("height", "400");
     divResponsive.appendChild(newCanvas);
     resultDiv.appendChild(divResponsive);
-    /* Paramétrer chaque graphe */
+    // Paramétrer chaque graphique
     if (document.getElementById("myRadar")) {
         new Chart(document.getElementById("myRadar"), {
             type: 'radar',
@@ -78,24 +79,14 @@ function createChartRadar(itemDataRadar) {
             }
 
         });
-        console.log(itemDataRadar);
     }
 }
-
-
 
 if (document.getElementById("radarChart")) {
     const url = getMyURL() + 'chart/getDataRadar';
     fetch(url)
-        .then((resp) => resp.json())
+        .then((response) => response.json())
         .then(data => {
-            console.log(data.questionData_elt);
-            console.log(data);
-
-            createChartRadar(data.questionData_elt.data.datasets.data);
-
-            console.log(data.questionData_elt.data.labels);
-            console.log(data.questionData_elt.data.datasets.data);
-
+            createChartRadar(data.questionData.data.datasets.data);
         });
 }
