@@ -33,6 +33,6 @@ header img {
 /* Médias queries */
 @media (min-width: 992px) {
     .container {
-        max-width: 720px !important;
+        max-width: 765px !important;
     }
 }

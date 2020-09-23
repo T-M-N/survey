@@ -1,3 +1,4 @@
+//Vérification email de l'utilisateur
 function stateSurvey(users){
     const url = getMyURL() + 'state';
     fetch(url)
@@ -8,10 +9,8 @@ function stateSurvey(users){
     
     
     let emailArray = localStorage.getItem('userList');
-        
 
     if (emailArray.includes(users)){
-        //email dans data
         for(let i=2; i <= 20; i++){
             let question_id = 'question_'+i;
             document.getElementById(question_id).disabled = false;
@@ -25,7 +24,6 @@ function stateSurvey(users){
             console.log(question_id);
         }
     }
-    // console.log(emailArray.includes(users));
 }
 
     const inputMail = document.getElementById('question_1');

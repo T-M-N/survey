@@ -16,8 +16,8 @@
         <span>toute l’équipe de Bigscreen vous remercie pour votre engagement. Grâce à votre investissement, nous vous préparons une
         application toujours plus facile à utiliser, seul ou en famille.</span>
         </p>
-        <p>Si vous désirez consulter vos réponse ultérieurement : 
-        <a href="{{ route('url', $url) }}">Accéder à vos réponses</a></p>
+        <p>Si vous désirez consulter vos réponse ultérieurement, vous pouvez consultez cette adresse : 
+        <a href="{{ route('url', $url) }}">http://127.0.0.1:8000/reponse/{{ $url }}</a></p>
     </section>
 </div>
 @endsection

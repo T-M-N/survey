@@ -19,9 +19,10 @@ class SurveyController extends Controller
       ]); 
    }
 
+//Pour contôler l'utilisateur
    public function getJSONUser(){
        $users = User::pluck('email')->toArray();
-       
+
        return response()->json([
          'users'=>$users,
        ]);

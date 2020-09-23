@@ -34,7 +34,6 @@
                 <div class="option-dotted">
                 <p>{{ $answer->option }}</p>
                 </div>
-                
             @endif
         @endforeach
         </div>    

@@ -19,7 +19,7 @@ Route::get('state', 'SurveyController@getJSONUser');
 
 // Url question answer list
 Route::resource('validation', 'AnswerUrlController');
-Route::get('/validation/{url}', 'AnswerUrlController@show')->name('url');
+Route::get('/reponse/{url}', 'AnswerUrlController@show')->name('url');
 
 // Section privée admin
 Route::get('administration', 'AdminController@index')->middleware('auth');
