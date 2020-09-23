@@ -49,7 +49,6 @@ class AnswerUrlController extends Controller
                         $answer->option = $answer_given;
                         $answer->save();
                     }
-
                      $user->answers()->attach($answer);
                 }
             }
