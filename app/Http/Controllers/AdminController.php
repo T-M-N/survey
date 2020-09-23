@@ -32,7 +32,7 @@ class AdminController extends Controller
     // Fonction pour récupérer les informations d'une question : PIE CHART
     public function getChartDataType($id_question,$type){
     /* Tableau de couleur */
-    $colorPicker = ['#003049','#d62828','#f77f00','#fcbf49','#eae2b7','#006d77','#ffb5a7','#78290f','#001f54'];
+    $colorPicker = ['#1DB8EB','#406E7D','#19E3A7','#E65D53','#B0022F','#006d77','#ffb5a7','#78290f','#001f54'];
     $questions = Question::with(['answers'])->where('id', $id_question)->first()->toArray();
     $chartDataInformation = [];
     $chartDataInformation['labels'] = [];
@@ -51,7 +51,7 @@ class AdminController extends Controller
     // Attribuer la couleur à cette option : on choisit la couleur au hasard
     $bgColor = $colorPicker[rand(0,(sizeof($colorPicker)-1))];
     // Pour éviter que la couleur revienne 2 fois, on le supprime de la table
-    $colorPicker = array_values(array_diff( $colorPicker, array($bgColor) ));
+    $colorPicker = array_values(array_diff($colorPicker, array($bgColor)));
     array_push( $chartDataInformation['labels'], $thisOption);
     array_push( $datasetArray['data'] , $countThisOption);
     array_push( $datasetArray['backgroundColor'] , $bgColor);
@@ -64,96 +64,79 @@ class AdminController extends Controller
     }
 
     // Fonction qui permet de récupérer les informations des graphes
-    // REtourner sous former de JSON
     public function getJSONChartData(){
-    $globalData = [];
-    /* Question avec leur type respectif */
-    $questionList = [
-    [
-    'idQuestion' => 6,
-    'type' => 'pie'
-    ],
-    [
-    'idQuestion' => 7,
-    'type' => 'pie'
-    ],
-    [
-    'idQuestion' => 10,
-    'type' => 'pie'
-    ],
-    ];
-    foreach($questionList as $question){
-    array_push($globalData, $this->getChartDataType($question['idQuestion'],$question['type']));
-    }
-    return response()->json([
-    'globalData'=>$globalData,
-    ]);
+        $globalData = [];
+        $questionList = [
+            [
+            'idQuestion' => 6,
+            'type' => 'pie'
+            ],
+            [
+            'idQuestion' => 7,
+            'type' => 'pie'
+            ],
+            [
+            'idQuestion' => 10,
+            'type' => 'pie'
+            ],
+        ];
+        foreach($questionList as $question){
+            array_push($globalData, $this->getChartDataType($question['idQuestion'],$question['type']));
+        }
+        return response()->json([
+            'globalData'=>$globalData,
+        ]);
     }
 
-    // Function to get radar chart data // NEW
+//Fonction qui permet de mettre en place le Radar
     public function getJSONRadarData(){
-    // Push title and id
-    $questionData_elt = [];
-    $questionData_elt['data'] = [];
-    /* Labels */
-    $questionData_elt['data']['labels'] = ['Qualité de l\'image', 'Confort de l\'utilisation', 'Connection réseau',
-    'Qualité des graphismes', 'Qualité audio'];
-    /* Datasets */
-    $questionData_elt['data']['datasets'] = [];
-    $questionData_elt['data']['datasets']['data'] = [];
-   
-    /* Get count of user who answered survey */
-    $userWhoAnswered = User::whereNotNull('url')->count();
-    /* Questions */
-    $questions = [11,12,13,14,15];
-    foreach($questions as $idQuestion){
-    // Get info of question
-    $questionInfo = Question::with(['answers'])->where('id', $idQuestion)->first()->toArray();
-    $colorPicker = ['#003049','#d62828','#f77f00','#fcbf49','#eae2b7','#006d77','#ffb5a7','#78290f','#001f54'];
+        $questionData_elt = [];
+        $questionData_elt['data'] = [];
+        // Datasets
+        $questionData_elt['data']['datasets'] = [];
+        $questionData_elt['data']['datasets']['data'] = [];
+        // Obtenez le nombre d'utilisateurs qui ont répondu à l'enquête
+        $countUserAnswer = User::whereNotNull('url')->count();
+        // Questions Radar
+        $questions = [11,12,13,14,15];
+        foreach($questions as $idQuestion){
+        // Info question
+        $questionInfo = Question::with(['answers'])->where('id', $idQuestion)->first()->toArray();
+        $colorPicker = ['#003049','#d62828','#f77f00','#fcbf49','#eae2b7','#006d77','#ffb5a7','#78290f','#001f54'];
+        // Je récupère les options de la table answers
+        $answers = Answer::pluck('option');
+        $idThisOption = $idQuestion['id'];
+        // Avant la moyenne
+        $sum = 0;
+        foreach($answers as $answer){
+            //Obtenez le nombre de chaque option par idQuestion
+            $countEachOption = Answer::with(['question'])->where([['option',$answer],['question_id',$idQuestion]])->count();
+            $answer_int = (int) $answer;
+            $sum += $answer_int*$countEachOption;
+            }
+            $countAverage = round($sum / $countUserAnswer, 2);
+            array_push($questionData_elt['data']['datasets']['data'], $countAverage);
+        }
+        
+        return response()->json([
+            'questionData_elt'=>$questionData_elt
+        ]);
+    }
 
-    // Get options
-    $choices = Answer::pluck('option');
-    $idThisOption = $idQuestion['id'];
-    // Color
-    $bgColor = '';
-    $ptColor = '#fff';
-    // Count before AVG
-    $sum = 0;
-    foreach($choices as $choice){
-    // Get count of each option by idQuestion
-    $temp = Answer::with(['question'])->where([['option',$choice],['question_id',$idQuestion]])->count();
-    
-    $choice_int = (int) $choice;
-    $sum += $choice_int*$temp;
-    }
-    $countAverage = round($sum / $userWhoAnswered, 2);
-    array_push($questionData_elt['data']['datasets']['data'] , $countAverage);
-    $bgColor = $colorPicker[rand(0,(sizeof($colorPicker)-1))];
-    }
-    
-    return response()->json([
-        'questionData_elt'=>$questionData_elt
+//List question page
+    public function questionTypeList(){
+        $questions = Question::all();
+        return view('back.survey.question', [
+        'questions' => $questions
         ]);
     }
 
 
-
-
-
-    public function questionTypeList(){
-    $questions = Question::all();
-
-    return view('back.survey.question', [
-    'questions' => $questions
-    ]);
-    }
-
-
+//List answers each users
     public function userAnswerList(){
-    $userAnswers = User::with(['answers','answers.question'])->get();
-
-    return view('back.survey.answer', [
-    'userAnswers' => $userAnswers
-    ]);
+        $userAnswers = User::with(['answers','answers.question'])->get();
+        return view('back.survey.answer', [
+        'userAnswers' => $userAnswers
+        ]);
     }
 }

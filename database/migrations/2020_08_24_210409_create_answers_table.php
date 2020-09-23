@@ -15,8 +15,7 @@ class CreateAnswersTable extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->id(); 
-            $table->string('option',255)->nullable();             
-            // Foreign key : Relation with Question
+            $table->string('option',255)->nullable();  
             $table->unsignedInteger('question_id')->nullable();
             $table->foreign('question_id')->references('id')->on('questions')->onDelete('SET NULL');
             $table->timestamps();

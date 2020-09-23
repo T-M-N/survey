@@ -59,7 +59,7 @@
             </div> 
           @endforeach
         <div id="valider">
-            <input type="submit" value="Envoyer">
+            <input type="submit" value="Finaliser">
         </div>
       </form>
     </div>

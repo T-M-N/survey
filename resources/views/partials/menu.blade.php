@@ -7,16 +7,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="nav flex-column nav-pills">
-            <li class="nav-item active">
+            <li class="{{ (request()->is('/')) ? 'active' : '' }} nav-item m-2">
                 <a class="nav-link text-white" href="{{route('charts')}}">Accueil</a>
             </li>
-            <li class="nav-item">
+            <li class="{{ (request()->is('administration/question')) ? 'active' : '' }} nav-item m-2">
                <a class="nav-link text-white" href="{{route('question')}}">Questionnaire</a>
             </li>
-            <li class="nav-item">
+            <li class="{{ (request()->is('administration/reponse')) ? 'active' : '' }} nav-item m-2">
                 <a class="nav-link text-white" href="{{route('answer')}}">Réponses</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item m-2">
                 <a class="nav-link text-white" href="{{ route('logout') }}" onclick="event.preventDefault();
                              document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}

@@ -1,5 +1,5 @@
 function createChart(itemData, count) {
-    let resultDiv = document.getElementById("pieChartLoc");
+    let resultDiv = document.getElementById("pieChart");
     /* Créer une division response */
     let divResponsive = document.createElement("div");
     divResponsive.setAttribute("class", "col-md-12");
@@ -20,7 +20,7 @@ function createChart(itemData, count) {
     }
 }
 
-if (document.getElementById("pieChartLoc")) {
+if (document.getElementById("pieChart")) {
     const url = getMyURL() + 'chart/getData';
     fetch(url)
         .then((resp) => resp.json())
@@ -38,7 +38,7 @@ if (document.getElementById("pieChartLoc")) {
 
 
 function createChartRadar(itemDataRadar) {
-    let resultDiv = document.getElementById("doughNutChartLoc");
+    let resultDiv = document.getElementById("radarChart");
     /* Créer une division response */
     let divResponsive = document.createElement("div");
     divResponsive.setAttribute("class", "col-md-12");

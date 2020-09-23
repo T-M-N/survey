@@ -12,10 +12,18 @@
     border-color: #2fcbd2 !important;
 }
 
-#stat{
+.chartjs-render-monitor {
+    -webkit-box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+    border-radius: .25rem !important;
+    margin-bottom: 3rem !important;
+    padding: 1rem;
+}
+
+#stat {
     text-align: center;
 }
 
-#stat h1{
-    font-size:2rem;
+#stat h1 {
+    font-size: 2rem;
 }

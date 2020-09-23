@@ -61,10 +61,28 @@ label {
     background-color: rgb(29 185 215 / 46%);
 }
 
-.chartjs-render-monitor{
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
-    border-radius: .25rem !important;
-    margin-bottom: 3rem !important;
-    /* padding: 1rem!important; */
-    border: 2em solid #fff;
+
+.nav-item{
+    border-bottom: 2px solid transparent;
+}
+
+.nav-item:hover{
+    border-bottom:2px solid #fff;
+}
+
+
+.active{
+   background: #fff;
+   box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+   border-radius: .25rem !important;
+}
+
+.active .text-white{
+    color:#1db8eb !important;
+}
+
+@media screen and (max-width:981px){
+    .m-2{
+        margin: 0rem !important;
+    }
 }
