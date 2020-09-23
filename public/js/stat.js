@@ -84,7 +84,7 @@ function createChartRadar(itemDataRadar) {
 
 
 
-if (document.getElementById("doughNutChartLoc")) {
+if (document.getElementById("radarChart")) {
     const url = getMyURL() + 'chart/getDataRadar';
     fetch(url)
         .then((resp) => resp.json())
